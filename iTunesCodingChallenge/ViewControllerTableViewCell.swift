@@ -10,6 +10,7 @@ import UIKit
 
 class ViewControllerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
