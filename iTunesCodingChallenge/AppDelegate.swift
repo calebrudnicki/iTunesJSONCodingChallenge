@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+var favoriteMovies = [Movie]()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

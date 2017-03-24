@@ -16,17 +16,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    typealias JSONDictionary = [String:Any]
+    typealias JSONDictionary = [String : Any]
     var movies = [Movie]()
     var refreshControl = UIRefreshControl()
     let url = URL(string: "https://itunes.apple.com/us/rss/topmovies/limit=25/json")!
     
-    //This is a movie struct with five string attributes
-    struct Movie {
-        let name, price, releaseDate, image, link : String
-    }
-    
-    //This function sets up the table view and calls fetchJSON()
+    //This function sets up the table view, activity indicator, and calls setCurrentDate() and fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -76,8 +71,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 let price = self.getValue(for: "price", in: entry)
                                 let releaseISODate = self.getValue(for: "releaseDate", in: entry)
                                 let releaseDate = ISO8601DateFormatter().date(from: releaseISODate)!
-                                //Create a movie and append it to the array of movies
-                                let newMovie = Movie(name: name, price: price, releaseDate: self.outputFormatter.string(from: releaseDate), image:image, link:link)
+                                //Create a new movie object and append it to the array of movies
+                                let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, image:image, link:link)
                                 self.movies.append(newMovie)
                             }
                         }
@@ -149,38 +144,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = self.movies[indexPath.row].name
-        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
-        cell.priceLabel.text = self.movies[indexPath.row].price
+        cell.titleLabel.text = self.movies[indexPath.row].getName()
+        cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
+        cell.priceLabel.text = self.movies[indexPath.row].getPrice()
         return cell
     }
     
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].name)
+        performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].getName())
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //This delegate function allows the user to slide over an a cell to add it to favorites
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
+            favoriteMovies.append(self.movies[editActionsForRowAt.row])
+            self.tableView.setEditing(false, animated: true)
+        }
+        addToFavorites.backgroundColor = .lightGray
+        return [addToFavorites]
     }
     
     //MARK: Segue Functions
     
-    //This overriden functions is enacted right before the segue is performed so it can feed the necessary data into the segue
+    //This overriden functions is enacted right before the segue is performed so it can feed the movie object thru the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "showMovieDetails" {
                 let indexPath = tableView.indexPathForSelectedRow!
                 let movie = self.movies[indexPath.row]
                 let movieDetailViewController = segue.destination as! MovieDetailViewController
-                movieDetailViewController.movieName = movie.name
-                movieDetailViewController.movieReleaseDate = movie.releaseDate
-                movieDetailViewController.moviePrice = movie.price
-                movieDetailViewController.movieLink = movie.link
-                movieDetailViewController.moviePoster = movie.image
+                movieDetailViewController.movie = movie
             }
         }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
 }

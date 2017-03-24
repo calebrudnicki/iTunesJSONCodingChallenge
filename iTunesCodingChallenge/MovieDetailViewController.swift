@@ -16,11 +16,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var linkButton: UIButton!
     
-    var movieName: String?
-    var movieReleaseDate: String?
-    var moviePrice: String?
-    var moviePoster: String?
-    var movieLink: String?
+    var movie: Movie?
     
     //This function sets the back button to white and all of the labels and images to blank or nothing when the view loads
     override func viewDidLoad() {
@@ -34,10 +30,10 @@ class MovieDetailViewController: UIViewController {
     
     //This function sets all of the labels and images when the view appears as the info comes thru the segue when the view appears each time
     override func viewDidAppear(_ animated: Bool) {
-        movieTitleLabel.text = movieName
-        movieReleaseDateLabel.text = "Release Date: " + movieReleaseDate!
-        moviePriceLabel.text = "Price: " + moviePrice!
-        if let url = NSURL(string: moviePoster!) {
+        movieTitleLabel.text = self.movie?.getName()
+        movieReleaseDateLabel.text = "Release Date: " + (self.movie?.getReleaseDate())!
+        moviePriceLabel.text = "Price: " + (self.movie?.getPrice())!
+        if let url = NSURL(string: (self.movie?.getImage())!) {
             if let data = NSData(contentsOf: url as URL) {
                 movieImage.image = UIImage(data: data as Data)
             }
@@ -50,7 +46,7 @@ class MovieDetailViewController: UIViewController {
     
     //This functions links the user to a safari url specific to each movie upon clicking the link button
     @IBAction func linkButtonTapped(_ sender: Any) {
-        let url = URL(string: movieLink!)!
+        let url = URL(string: (self.movie?.getLink())!)!
         print(url)
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

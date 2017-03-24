@@ -11,6 +11,101 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Favorites View Controller-->
+        <scene sceneID="caF-be-G3r">
+            <objects>
+                <viewController id="tkb-Nj-R5H" customClass="FavoritesViewController" customModule="iTunesCodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eiz-ek-C4Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="XS3-wV-9ws"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ayZ-e9-WrN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cNI-3Z-ORi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="95" id="aI8-x5-qMy" customClass="ViewControllerTableViewCell" customModule="iTunesCodingChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aI8-x5-qMy" id="jLB-ve-Uei">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Na-a0Z">
+                                                    <rect key="frame" x="51" y="36" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk1-JT-eut">
+                                                    <rect key="frame" x="51" y="65" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0S-hq-RWj">
+                                                    <rect key="frame" x="8" y="8" width="25" height="78"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRn-qX-jMy">
+                                                    <rect key="frame" x="51" y="8" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PIq-Na-a0Z" firstAttribute="centerY" secondItem="jLB-ve-Uei" secondAttribute="centerY" id="4cS-AD-Zm5"/>
+                                                <constraint firstAttribute="bottom" secondItem="H0S-hq-RWj" secondAttribute="bottom" constant="8" id="EqP-li-spr"/>
+                                                <constraint firstItem="GRn-qX-jMy" firstAttribute="top" secondItem="jLB-ve-Uei" secondAttribute="top" constant="8" id="He0-Wl-mB9"/>
+                                                <constraint firstItem="GRn-qX-jMy" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="NA0-Nf-Yfk"/>
+                                                <constraint firstItem="H0S-hq-RWj" firstAttribute="top" secondItem="jLB-ve-Uei" secondAttribute="top" constant="8" id="UXO-Os-U4L"/>
+                                                <constraint firstItem="H0S-hq-RWj" firstAttribute="leading" secondItem="jLB-ve-Uei" secondAttribute="leading" constant="8" id="Z9Q-r1-amG"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qk1-JT-eut" secondAttribute="bottom" constant="8" id="bTr-8h-4EA"/>
+                                                <constraint firstItem="Qk1-JT-eut" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="dC3-ut-AFM"/>
+                                                <constraint firstItem="PIq-Na-a0Z" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="yRD-pw-E5e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="Qk1-JT-eut" id="yyn-PW-GmL"/>
+                                            <outlet property="rankLabel" destination="H0S-hq-RWj" id="aAa-gF-rR8"/>
+                                            <outlet property="releaseDateLabel" destination="PIq-Na-a0Z" id="Sb6-FA-FCD"/>
+                                            <outlet property="titleLabel" destination="GRn-qX-jMy" id="ARa-TD-dzu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Uf5-7Y-xQh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CpZ-0u-hfW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cNI-3Z-ORi" firstAttribute="height" secondItem="ayZ-e9-WrN" secondAttribute="height" id="b8z-T5-1rU"/>
+                            <constraint firstItem="cNI-3Z-ORi" firstAttribute="centerX" secondItem="ayZ-e9-WrN" secondAttribute="centerX" id="fD6-tB-Z3z"/>
+                            <constraint firstItem="cNI-3Z-ORi" firstAttribute="centerY" secondItem="ayZ-e9-WrN" secondAttribute="centerY" id="lfx-al-F1L"/>
+                            <constraint firstItem="cNI-3Z-ORi" firstAttribute="width" secondItem="ayZ-e9-WrN" secondAttribute="width" id="li0-Lk-Fla"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Nmg-3a-Aer"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="cNI-3Z-ORi" id="L1s-dI-00m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFR-Yd-vbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="-613.04347826086962"/>
+        </scene>
         <!--Top 25 iTunes Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -38,7 +133,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fvN-rV-WPo" id="k0P-yu-91Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-Ru-Wnj">
@@ -107,7 +202,15 @@
                             <constraint firstItem="9cK-EX-0CT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uhG-pE-9EZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Top 25 iTunes Movies" id="eMn-oo-xpI"/>
+                    <navigationItem key="navigationItem" title="Top 25 iTunes Movies" id="eMn-oo-xpI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="ItY-XX-JzB">
+                            <color key="tintColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="favoritesButtonTapped:" destination="BYZ-38-t0r" id="Vkx-Oj-nVt"/>
+                                <segue destination="tkb-Nj-R5H" kind="show" id="BDq-kp-7re"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="9cK-EX-0CT" id="OEP-Bd-jzP"/>
                         <outlet property="currentDateLabel" destination="Ovg-eF-b6k" id="t37-LH-EoM"/>
