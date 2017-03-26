@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -71,7 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 let price = self.getValue(for: "price", in: entry)
                                 let releaseISODate = self.getValue(for: "releaseDate", in: entry)
                                 let releaseDate = ISO8601DateFormatter().date(from: releaseISODate)!
-                                //Create a new movie object and append it to the array of movies
+                                //Create a new movie object and save it into core data
                                 let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, image:image, link:link)
                                 self.movies.append(newMovie)
                             }
@@ -160,6 +161,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
             favoriteMovies.append(self.movies[editActionsForRowAt.row])
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let newFavoriteMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
+            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getName(), forKey: "name")
+            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getReleaseDate(), forKey: "releaseDate")
+            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getPrice(), forKey: "price")
+            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getImage(), forKey: "image")
+            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getLink(), forKey: "link")
+            
+            do {
+                try context.save()
+                print("SAVED")
+            } catch {
+                //Process ERROR
+            }
             self.tableView.setEditing(false, animated: true)
         }
         addToFavorites.backgroundColor = .lightGray
