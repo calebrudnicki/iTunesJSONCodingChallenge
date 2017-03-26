@@ -15,13 +15,28 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     var movies: [Movies] = []
     
+    //This function sets up the table view and calls retrieveFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.isEditing = true
-        //Retrieving from core data
+        self.retrieveFromCoreData()
+    }
+    
+    //This function calls reorderCoreData() when the view disappears
+    override func viewDidDisappear(_ animated: Bool) {
+        self.reorderCoreData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //MARK: CoreData Functions
+    
+    //This function retrieves the movies from CoreData
+    func retrieveFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Movies")
@@ -33,14 +48,45 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                     self.movies.append(result as! Movies)
                 }
             }
-        } catch {
-            //Process ERROR
+        } catch let error as NSError {
+            fatalError("Failed to retrieve movie: \(error)")
         }
-        print(movies.count)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    //This function deletes a specific movie from CoreData
+    func deleteFromCoreData(_ indexPath: IndexPath) {
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let context = appDelegate.persistentContainer.viewContext
+        let movieToBeDeleted = movies[(indexPath as NSIndexPath).row]
+        context.delete(movieToBeDeleted)
+        do {
+            try context.save()
+        } catch let error as NSError {
+            fatalError("Failed to fetch movie: \(error)")
+        }
+    }
+    
+    //This function reorders the values in core data to account for the user's top list of movies
+    func reorderCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        for i in 0...movies.count - 1 {
+            let currentMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
+            currentMovie.setValue(self.movies[i].name, forKey: "name")
+            currentMovie.setValue(self.movies[i].releaseDate, forKey: "releaseDate")
+            currentMovie.setValue(self.movies[i].price, forKey: "price")
+            currentMovie.setValue(self.movies[i].image, forKey: "image")
+            currentMovie.setValue(self.movies[i].link, forKey: "link")
+            context.delete(self.movies[i])
+            
+            do {
+                try context.save()
+                print("SAVED")
+            } catch let error as NSError {
+                fatalError("Failed to reorder movies: \(error)")
+            }
+            
+        }
     }
 
     //MARK: TableView Delegate Functions
@@ -63,26 +109,18 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This delegate function allows the user to delete a cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-            let context = appDelegate.persistentContainer.viewContext
-            let movieToBeDeleted = movies[indexPath.row]
-            context.delete(movieToBeDeleted)
-            do {
-                try context.save()
-            } catch let error as NSError {
-                fatalError("Failed to fetch movie: \(error)")
-            }
-            movies.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
+            self.deleteFromCoreData(indexPath)
+            self.movies.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
         }
     }
     
-    //This delegate function allows the user to reorder their favorites list
+    //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = movies[sourceIndexPath.row]
+        let movieToBeMoved = movies[sourceIndexPath.row]
         movies.remove(at: sourceIndexPath.row)
-        movies.insert(movedObject, at: destinationIndexPath.row)
+        movies.insert(movieToBeMoved, at: destinationIndexPath.row)
         self.tableView.reloadData()
     }
 

@@ -134,6 +134,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: CoreData Functions
+    
+    //This function adds a movie to CoreData as one of the users favorite movies
+    func addMovieToFavorites(_ indexPath: NSIndexPath) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newFavoriteMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getName(), forKey: "name")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getReleaseDate(), forKey: "releaseDate")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getPrice(), forKey: "price")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getImage(), forKey: "image")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getLink(), forKey: "link")
+        
+        do {
+            try context.save()
+            print("SAVED")
+        } catch let error as NSError {
+            fatalError("Failed to add movie to favorites: \(error)")
+        }
+        self.tableView.setEditing(false, animated: true)
+    }
+    
     //MARK: TableView Delegate Functions
     
     //This delegate function sets the amount of rows in the table view to 25
@@ -160,25 +182,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //This delegate function allows the user to slide over an a cell to add it to favorites
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
-            favoriteMovies.append(self.movies[editActionsForRowAt.row])
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let newFavoriteMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
-            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getName(), forKey: "name")
-            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getReleaseDate(), forKey: "releaseDate")
-            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getPrice(), forKey: "price")
-            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getImage(), forKey: "image")
-            newFavoriteMovie.setValue(self.movies[editActionsForRowAt.row].getLink(), forKey: "link")
-            
-            do {
-                try context.save()
-                print("SAVED")
-            } catch {
-                //Process ERROR
-            }
-            self.tableView.setEditing(false, animated: true)
+            self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
         }
-        addToFavorites.backgroundColor = .lightGray
+        addToFavorites.backgroundColor = .green
         return [addToFavorites]
     }
     
