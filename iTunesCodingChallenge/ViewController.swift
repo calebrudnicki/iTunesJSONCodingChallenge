@@ -5,7 +5,7 @@
 //  Created by Caleb Rudnicki on 3/20/17.
 //  Copyright © 2017 Caleb Rudnicki. All rights reserved.
 //
-//  App icon designed by Shastry from the Noun Project
+//  App icon designed by Blaise Sewell from the Noun Project
 //
 
 import UIKit
@@ -156,6 +156,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.setEditing(false, animated: true)
     }
     
+    //This function checks to see if a movie is already in a user's favorites in CoreData
+    func foundDuplicateInCoreData(movieName: String) -> Bool {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Movies")
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(request)
+                for result in results as! [NSManagedObject] {
+                    if (result as! Movies).name == movieName {
+                        return true
+                    }
+            }
+        } catch let error as NSError {
+            fatalError("Failed to retrieve movie: \(error)")
+        }
+        return false
+    }
+    
     //MARK: TableView Delegate Functions
     
     //This delegate function sets the amount of rows in the table view to 25
@@ -175,16 +194,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
         performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].getName())
-        tableView.deselectRow(at: indexPath, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //This delegate function allows the user to slide over an a cell to add it to favorites
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
-            self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
+            if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
+                print("Didnt work")
+            } else {
+                print("Worked")
+                self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
+            }
+            //self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
         }
-        addToFavorites.backgroundColor = .green
+        addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]
     }
     

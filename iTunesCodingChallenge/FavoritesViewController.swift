@@ -18,6 +18,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This function sets up the table view and calls retrieveFromCoreData()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.isEditing = true
@@ -93,16 +94,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     //This delegate function sets the amount of rows in the table view to the total amount of favorited movies
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        return self.movies.count
     }
     
     //This delegate function sets data in each cell to the appropriate movie rank, name, date, and price
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = movies[indexPath.row].name
-        cell.releaseDateLabel.text = movies[indexPath.row].releaseDate
-        cell.priceLabel.text = movies[indexPath.row].price
+        cell.titleLabel.text = self.movies[indexPath.row].name
+        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
+        cell.priceLabel.text = self.movies[indexPath.row].price
         return cell
     }
     
@@ -119,8 +120,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movieToBeMoved = movies[sourceIndexPath.row]
-        movies.remove(at: sourceIndexPath.row)
-        movies.insert(movieToBeMoved, at: destinationIndexPath.row)
+        self.movies.remove(at: sourceIndexPath.row)
+        self.movies.insert(movieToBeMoved, at: destinationIndexPath.row)
         self.tableView.reloadData()
     }
 
