@@ -15,6 +15,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var moviePriceLabel: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var linkButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var movie: Movie?
     
@@ -30,6 +31,7 @@ class MovieDetailViewController: UIViewController {
     
     //This function sets all of the labels and images when the view appears as the info comes thru the segue when the view appears each time
     override func viewDidAppear(_ animated: Bool) {
+        self.activityIndicator.stopAnimating()
         movieTitleLabel.text = self.movie?.getName()
         movieReleaseDateLabel.text = "Release Date: " + (self.movie?.getReleaseDate())!
         moviePriceLabel.text = "Price: " + (self.movie?.getPrice())!

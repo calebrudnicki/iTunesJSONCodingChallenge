@@ -98,7 +98,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="cNI-3Z-ORi" id="L1s-dI-00m"/>
-                        <segue destination="aM2-80-ZmS" kind="show" identifier="showFavoriteMovieDetails" id="Ley-lc-ut5"/>
+                        <segue destination="aM2-80-ZmS" kind="show" identifier="showFavoriteMovieDetails" id="WTT-jD-WF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFR-Yd-vbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,7 +262,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-zg-cFi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-zg-cFi">
                                 <rect key="frame" x="0.0" y="604" width="375" height="63"/>
                                 <color key="backgroundColor" red="0.396078431372549" green="0.59810411930084229" blue="0.72737401723861694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -273,10 +273,15 @@
                                     <action selector="linkButtonTapped:" destination="aM2-80-ZmS" eventType="touchUpInside" id="7ZK-A9-EqQ"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QBh-II-old">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.39607843139999999" green="0.59810411929999996" blue="0.72737401719999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ymr-wJ-CCP" firstAttribute="top" secondItem="jDw-WW-A3Y" secondAttribute="bottom" constant="27" id="2Dh-VD-JGn"/>
+                            <constraint firstItem="QBh-II-old" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="39b-UM-xGs"/>
                             <constraint firstItem="BFF-Ke-YdF" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.9" constant="-47.5" id="40A-NZ-QoQ"/>
                             <constraint firstItem="J7X-zg-cFi" firstAttribute="height" secondItem="D1E-dZ-6gI" secondAttribute="height" multiplier="0.15" constant="-37.049999999999997" id="BfT-wk-sxn"/>
                             <constraint firstItem="ymr-wJ-CCP" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.9" constant="5.5" id="DTy-hA-gD2"/>
@@ -284,6 +289,7 @@
                             <constraint firstItem="BFF-Ke-YdF" firstAttribute="top" secondItem="ymr-wJ-CCP" secondAttribute="bottom" constant="28" id="Qdx-VP-jUg"/>
                             <constraint firstItem="h8q-Zn-sdx" firstAttribute="top" secondItem="J7X-zg-cFi" secondAttribute="bottom" id="Syj-WB-jzr"/>
                             <constraint firstItem="ymr-wJ-CCP" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="VOs-a6-tsA"/>
+                            <constraint firstItem="QBh-II-old" firstAttribute="centerY" secondItem="D1E-dZ-6gI" secondAttribute="centerY" id="Vsc-WJ-yYx"/>
                             <constraint firstItem="oRV-Gp-eLt" firstAttribute="top" secondItem="BFF-Ke-YdF" secondAttribute="bottom" constant="36" id="XYe-mk-ye5"/>
                             <constraint firstItem="oRV-Gp-eLt" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" id="Znb-xG-adf"/>
                             <constraint firstItem="BFF-Ke-YdF" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="aQu-oT-qD8"/>
@@ -292,6 +298,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="QBh-II-old" id="eel-Ld-YLv"/>
                         <outlet property="linkButton" destination="J7X-zg-cFi" id="DoK-jj-Ha8"/>
                         <outlet property="movieImage" destination="BFF-Ke-YdF" id="TvS-8e-Qb7"/>
                         <outlet property="moviePriceLabel" destination="GXr-la-lvu" id="qXC-X2-cAh"/>
@@ -308,7 +315,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBa-mt-VlJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yMk-VP-Rhr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -332,6 +339,6 @@
         <image name="LaunchScreenIcon" width="520" height="806"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XSJ-IK-EcX"/>
+        <segue reference="WTT-jD-WF4"/>
     </inferredMetricsTieBreakers>
 </document>

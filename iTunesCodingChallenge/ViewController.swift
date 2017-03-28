@@ -149,7 +149,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         do {
             try context.save()
-            print("SAVED")
+            print("Saved " + self.movies[(indexPath as NSIndexPath).row].getName() + " to CoreData")
         } catch let error as NSError {
             fatalError("Failed to add movie to favorites: \(error)")
         }
@@ -194,21 +194,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].getName())
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //This delegate function allows the user to slide over an a cell to add it to favorites
+    //This delegate function allows the user to slide over an a cell to add it to favorites if it isn't already added to favorites
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
             if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
-                print("Didnt work")
+                let alert = UIAlertController(title: "Sorry, " + self.movies[editActionsForRowAt.row].getName() + " was already added", message: "", preferredStyle: UIAlertControllerStyle.alert);alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                print("Worked")
                 self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
+                let alert = UIAlertController(title: "Added " + self.movies[editActionsForRowAt.row].getName(), message: "", preferredStyle: UIAlertControllerStyle.alert);alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
-            //self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
         }
         addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]

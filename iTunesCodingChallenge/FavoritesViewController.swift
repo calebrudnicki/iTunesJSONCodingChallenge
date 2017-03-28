@@ -22,6 +22,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.isEditing = true
+        self.tableView.allowsSelectionDuringEditing = true
         self.retrieveFromCoreData()
     }
     
@@ -82,12 +83,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             do {
                 try context.save()
-                print("SAVED")
             } catch let error as NSError {
                 fatalError("Failed to reorder movies: \(error)")
             }
-            
         }
+        print("REORDERED")
     }
 
     //MARK: TableView Delegate Functions
@@ -117,12 +117,32 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    //This delegate function recognizes the cell that was selected and then performs a segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showFavoriteMovieDetails", sender: self.movies[indexPath.row].name!)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movieToBeMoved = movies[sourceIndexPath.row]
         self.movies.remove(at: sourceIndexPath.row)
         self.movies.insert(movieToBeMoved, at: destinationIndexPath.row)
         self.tableView.reloadData()
+    }
+    
+    //MARK: Segue Functions
+    
+    //This overriden functions is enacted right before the segue is performed so it can feed the movie object thru the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "showFavoriteMovieDetails" {
+                let indexPath = tableView.indexPathForSelectedRow!
+                let movieDetailViewController = segue.destination as! MovieDetailViewController
+                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, image: self.movies[indexPath.row].image!, link: self.movies[indexPath.row].link!)
+                movieDetailViewController.movie = chosenMovie
+            }
+        }
     }
 
 }
