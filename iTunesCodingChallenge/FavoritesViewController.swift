@@ -26,9 +26,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.retrieveFromCoreData()
     }
     
-    //This function calls reorderCoreData() when the view disappears
-    override func viewDidDisappear(_ animated: Bool) {
-        self.reorderCoreData()
+    //This function calls reorderCoreData() when the back button is tapped
+    override func willMove(toParentViewController parent: UIViewController?) {
+        if parent == nil {
+            self.reorderCoreData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,22 +74,24 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func reorderCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        for i in 0...movies.count - 1 {
-            let currentMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
-            currentMovie.setValue(self.movies[i].name, forKey: "name")
-            currentMovie.setValue(self.movies[i].releaseDate, forKey: "releaseDate")
-            currentMovie.setValue(self.movies[i].price, forKey: "price")
-            currentMovie.setValue(self.movies[i].image, forKey: "image")
-            currentMovie.setValue(self.movies[i].link, forKey: "link")
-            context.delete(self.movies[i])
-            
-            do {
-                try context.save()
-            } catch let error as NSError {
-                fatalError("Failed to reorder movies: \(error)")
+        if movies.count > 1 {
+            for i in 0...movies.count - 1 {
+                let currentMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
+                currentMovie.setValue(self.movies[i].name, forKey: "name")
+                currentMovie.setValue(self.movies[i].releaseDate, forKey: "releaseDate")
+                currentMovie.setValue(self.movies[i].price, forKey: "price")
+                currentMovie.setValue(self.movies[i].image, forKey: "image")
+                currentMovie.setValue(self.movies[i].link, forKey: "link")
+                context.delete(self.movies[i])
+                
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    fatalError("Failed to reorder movies: \(error)")
+                }
             }
+            print("REORDERED") 
         }
-        print("REORDERED")
     }
 
     //MARK: TableView Delegate Functions
@@ -119,7 +123,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showFavoriteMovieDetails", sender: self.movies[indexPath.row].name!)
+        print(indexPath.row)
+        performSegue(withIdentifier: "showFavoriteMovieDetails", sender: movies[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
