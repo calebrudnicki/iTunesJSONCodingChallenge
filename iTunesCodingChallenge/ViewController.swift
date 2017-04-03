@@ -16,21 +16,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorLabel: UILabel!
     
     typealias JSONDictionary = [String : Any]
     var movies = [Movie]()
     var refreshControl = UIRefreshControl()
     let url = URL(string: "https://itunes.apple.com/us/rss/topmovies/limit=25/json")!
     
-    //This function sets up the table view, activity indicator, and calls setCurrentDate() and fetchJSON()
+    //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate() and fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.currentDateLabel.text = ""
         self.refreshControl.addTarget(self, action: #selector(ViewController.refreshData), for: UIControlEvents.valueChanged)
         self.tableView?.addSubview(refreshControl)
-        self.setCurrentDate()
         self.fetchJSON(url: url)
     }
 
@@ -43,7 +44,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.activityIndicator.startAnimating()
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicatorLabel.text = "Couldn't connect to server, pull down to refresh"
+                }
                 self.promptUserToRefetchJSON()
                 print(error!)
             } else {
@@ -81,6 +85,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                         self.activityIndicator.stopAnimating()
+                        self.activityIndicatorLabel.text = ""
+                        self.setCurrentDate()
                     }
                 } catch let error as NSError {
                     print(error)

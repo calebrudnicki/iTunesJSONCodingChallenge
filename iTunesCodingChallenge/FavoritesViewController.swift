@@ -12,18 +12,21 @@ import CoreData
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noFavoritesLabel: UILabel!
     
     var movies: [Movies] = []
     
-    //This function sets up the table view and calls retrieveFromCoreData()
+    //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.hidesBarsOnSwipe = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.isEditing = true
         self.tableView.allowsSelectionDuringEditing = true
         self.retrieveFromCoreData()
+        self.decideToShowNoFavoritesLabel()
     }
     
     //This function calls reorderCoreData() when the back button is tapped
@@ -35,6 +38,17 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    //This function decides whether or not the user has any favorite movies and displays the page accordingly
+    func decideToShowNoFavoritesLabel() {
+        if movies.count > 0 {
+            self.noFavoritesLabel.isHidden = true
+            self.tableView.isHidden = false
+        } else {
+            self.noFavoritesLabel.isHidden = false
+            self.tableView.isHidden = true
+        }
     }
     
     //MARK: CoreData Functions

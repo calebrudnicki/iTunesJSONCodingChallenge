@@ -46,6 +46,9 @@ class MovieDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+
+    
+    
     //This functions links the user to a safari url specific to each movie upon clicking the link button
     @IBAction func linkButtonTapped(_ sender: Any) {
         let url = URL(string: (self.movie?.getLink())!)!
