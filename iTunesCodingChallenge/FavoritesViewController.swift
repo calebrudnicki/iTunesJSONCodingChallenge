@@ -20,7 +20,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.hidesBarsOnSwipe = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.isEditing = true
@@ -132,6 +131,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             self.movies.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             self.tableView.reloadData()
+            if movies.count < 1 {
+                decideToShowNoFavoritesLabel()
+            }
         }
     }
     

@@ -15,6 +15,7 @@
 		82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7A1E803D8F00A5E544 /* Assets.xcassets */; };
 		82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */; };
 		82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */; };
+		825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825D52071E936242007EDBFC /* OnboardingViewController.swift */; };
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		82298C7D1E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82298C7F1E803D8F00A5E544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		825D52071E936242007EDBFC /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			children = (
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
 				82820CB61E8472380083F75A /* Movie.swift */,
+				825D52071E936242007EDBFC /* OnboardingViewController.swift */,
 				82298C721E803D8F00A5E544 /* ViewController.swift */,
 				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
 				82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */,
@@ -155,6 +158,7 @@
 				82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */,
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
+				825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */,
 				82820CB71E8472380083F75A /* Movie.swift in Sources */,
 				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
 				82298C731E803D8F00A5E544 /* ViewController.swift in Sources */,

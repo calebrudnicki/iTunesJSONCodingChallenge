@@ -15,6 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc: UIViewController
+        
+        if (UserDefaults.standard.value(forKey: "name") as? String) == nil {
+            //Show onboarding screen
+            vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+        } else {
+            //Show the main screen
+            //vc = storyboard.instantiateInitialViewController()!
+            vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+        }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
