@@ -6,6 +6,7 @@
 //  Copyright © 2017 Caleb Rudnicki. All rights reserved.
 //
 //  App icon designed by Blaise Sewell from the Noun Project
+//  Finger icons designed by Andrejs Kirma from the Noun Project
 //
 
 import UIKit
@@ -208,18 +209,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
             if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
-                let alert = UIAlertController(title: "Sorry, " + self.movies[editActionsForRowAt.row].getName() + " was already added", message: "", preferredStyle: UIAlertControllerStyle.alert);alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                let alert = UIAlertController(title: "Sorry, " + self.movies[editActionsForRowAt.row].getName() + " was already added", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive)  { (action) in
+                    self.tableView.isEditing = false
+                })
                 self.present(alert, animated: true, completion: nil)
+                
             } else {
                 self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
-                let alert = UIAlertController(title: "Added " + self.movies[editActionsForRowAt.row].getName(), message: "", preferredStyle: UIAlertControllerStyle.alert);alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                let alert = UIAlertController(title: "Added " + self.movies[editActionsForRowAt.row].getName(), message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
         addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]
     }
-    
+
     //MARK: Segue Functions
     
     //This overriden functions is enacted right before the segue is performed so it can feed the movie object thru the segue

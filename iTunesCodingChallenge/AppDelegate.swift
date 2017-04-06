@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
         } else {
             //Show the main screen
-            //vc = storyboard.instantiateInitialViewController()!
-            vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+            vc = storyboard.instantiateInitialViewController()!
         }
         
         self.window?.rootViewController = vc

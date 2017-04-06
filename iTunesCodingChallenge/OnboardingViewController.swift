@@ -9,7 +9,7 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,9 +17,16 @@ class OnboardingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //This function makes the status bar white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
-    @IBAction func skipButtonTapped(_ sender: Any) {
+    //This functions starts the app when the user has read the tutorial
+    @IBAction func gotItButtonTapped(_ sender: Any) {
         UserDefaults.standard.set("User", forKey: "name")
         performSegue(withIdentifier: "showMainPageSegue", sender: nil)
     }
+    
 }
