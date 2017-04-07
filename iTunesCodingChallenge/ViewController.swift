@@ -11,6 +11,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -143,7 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //MARK: CoreData Functions
     
-    //This function adds a movie to CoreData as one of the users favorite movies
+    //This function adds a movie to CoreData as one of the users favorite movies and send them a notification
     func addMovieToFavorites(_ indexPath: NSIndexPath) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -157,6 +158,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do {
             try context.save()
             print("Saved " + self.movies[(indexPath as NSIndexPath).row].getName() + " to CoreData")
+            self.sendUserNotification(movieName: self.movies[(indexPath as NSIndexPath).row].getName(), movieImage: self.movies[(indexPath as NSIndexPath).row].getImage())
         } catch let error as NSError {
             fatalError("Failed to add movie to favorites: \(error)")
         }
@@ -208,11 +210,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //This delegate function allows the user to slide over an a cell to add it to favorites if it isn't already added to favorites
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
+            self.tableView.isEditing = false
             if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
                 let alert = UIAlertController(title: "Sorry, " + self.movies[editActionsForRowAt.row].getName() + " was already added", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive)  { (action) in
-                    self.tableView.isEditing = false
-                })
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
             } else {
@@ -238,6 +239,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 movieDetailViewController.movie = movie
             }
         }
+    }
+    
+    //MARK: Notification Functions
+    
+    //Sends the user a notification about a movie that was just added to their favorites list
+    func sendUserNotification(movieName: String, movieImage: String) {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "You added " + movieName, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Check it out on your favorites list!", arguments: nil)
+        content.sound = UNNotificationSound.default()
+        content.badge = 1
+        
+        //Deliver the notification
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 30, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "ThirtySecond", content: content, trigger: trigger)
+        
+        //Schedule the notification
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
     }
     
 }

@@ -18,6 +18,7 @@
 		825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825D52071E936242007EDBFC /* OnboardingViewController.swift */; };
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
+		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		825D52071E936242007EDBFC /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +55,7 @@
 			children = (
 				82298C6F1E803D8F00A5E544 /* iTunesCodingChallenge */,
 				82298C6E1E803D8F00A5E544 /* Products */,
+				82F5CFD01E96C02F00B3561C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +84,14 @@
 				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
 			);
 			path = iTunesCodingChallenge;
+			sourceTree = "<group>";
+		};
+		82F5CFD01E96C02F00B3561C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82F5CFD11E96C03000B3561C /* UserNotifications.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
