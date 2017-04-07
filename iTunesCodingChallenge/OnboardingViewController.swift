@@ -23,10 +23,15 @@ class OnboardingViewController: UIViewController {
         return .lightContent
     }
 
-    //This functions starts the app when the user has read the tutorial
+    //This function continues to the home page of the app once the user has read the tutorial
     @IBAction func gotItButtonTapped(_ sender: Any) {
-        UserDefaults.standard.set("User", forKey: "name")
-        performSegue(withIdentifier: "showMainPageSegue", sender: nil)
+        //The type of segue used depends on whether or not this is a first time user
+        if (UserDefaults.standard.value(forKey: "name") as? String) == nil {
+            UserDefaults.standard.set("User", forKey: "name")
+            performSegue(withIdentifier: "showMainPageSegue", sender: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 }

@@ -14,7 +14,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="caF-be-G3r">
             <objects>
                 <viewController id="tkb-Nj-R5H" customClass="FavoritesViewController" customModule="iTunesCodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +121,14 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="to3-3L-yiS"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="esC-39-mAh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="ubS-Uu-eJQ">
+                            <color key="tintColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="editButtonTapped:" destination="tkb-Nj-R5H" id="yWe-5N-gXw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noFavoritesLabel" destination="1On-mZ-8Yw" id="AuB-r2-Qh2"/>
                         <outlet property="tableView" destination="cNI-3Z-ORi" id="L1s-dI-00m"/>
@@ -172,7 +179,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fvN-rV-WPo" id="k0P-yu-91Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-Ru-Wnj">

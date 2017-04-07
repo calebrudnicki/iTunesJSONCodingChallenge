@@ -22,7 +22,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.isEditing = true
+        self.tableView.isEditing = false
         self.tableView.allowsSelectionDuringEditing = true
         self.retrieveFromCoreData()
         self.decideToShowNoFavoritesLabel()
@@ -165,5 +165,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
+    
+    //MARK: Action Functions
+    
+    //This function toggles between editing the table view and not editing the table view when the edit button is pressed
+    @IBAction func editButtonTapped(_ sender: Any) {
+        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
+    }
+    
 
 }

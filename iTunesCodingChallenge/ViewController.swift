@@ -243,7 +243,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //MARK: Notification Functions
     
-    //Sends the user a notification about a movie that was just added to their favorites list
+    //Sends the user a notification about a movie that was added to their favorites list
     func sendUserNotification(movieName: String, movieImage: String) {
         let content = UNMutableNotificationContent()
         content.title = NSString.localizedUserNotificationString(forKey: "You added " + movieName, arguments: nil)
@@ -252,8 +252,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         content.badge = 1
         
         //Deliver the notification
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 30, repeats: false)
-        let request = UNNotificationRequest.init(identifier: "ThirtySecond", content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 7200, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "TwoHour", content: content, trigger: trigger)
         
         //Schedule the notification
         let center = UNUserNotificationCenter.current()
