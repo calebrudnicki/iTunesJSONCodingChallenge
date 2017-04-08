@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
         
+        //Set the tint color of the entire app
+        window?.tintColor = UIColor(red: 101/255, green: 153/255, blue: 185/255, alpha: 1.0)
+        
         return true
     }
 

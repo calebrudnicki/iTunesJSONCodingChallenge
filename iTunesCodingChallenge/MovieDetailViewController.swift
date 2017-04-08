@@ -38,6 +38,8 @@ class MovieDetailViewController: UIViewController {
         if let url = NSURL(string: (self.movie?.getImage())!) {
             if let data = NSData(contentsOf: url as URL) {
                 movieImage.image = UIImage(data: data as Data)
+            } else {
+                movieImage.image = #imageLiteral(resourceName: "NoImagePhoto")
             }
         }
     }
@@ -46,13 +48,9 @@ class MovieDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
-    
-    
     //This functions links the user to a safari url specific to each movie upon clicking the link button
     @IBAction func linkButtonTapped(_ sender: Any) {
         let url = URL(string: (self.movie?.getLink())!)!
-        print(url)
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -60,5 +58,4 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-
 }
