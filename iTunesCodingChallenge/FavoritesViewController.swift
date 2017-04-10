@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noFavoritesLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var movies: [Movies] = []
     
     //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
@@ -119,8 +120,12 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].name
-        //cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
-        cell.priceLabel.text = self.movies[indexPath.row].price
+        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
+        if appDelegate.isSeeingRentalPrice == false {
+            cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].price!
+        } else {
+            cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
+        }
         return cell
     }
     

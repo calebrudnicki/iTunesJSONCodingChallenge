@@ -18,6 +18,7 @@
 		825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825D52071E936242007EDBFC /* OnboardingViewController.swift */; };
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
+		82AAB7231E9C0D5600A7568D /* InformationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		825D52071E936242007EDBFC /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenViewController.swift; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 			children = (
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
 				82820CB61E8472380083F75A /* Movie.swift */,
+				82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */,
 				825D52071E936242007EDBFC /* OnboardingViewController.swift */,
 				82298C721E803D8F00A5E544 /* ViewController.swift */,
 				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
@@ -173,6 +176,7 @@
 				825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */,
 				82820CB71E8472380083F75A /* Movie.swift in Sources */,
 				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
+				82AAB7231E9C0D5600A7568D /* InformationScreenViewController.swift in Sources */,
 				82298C731E803D8F00A5E544 /* ViewController.swift in Sources */,
 				82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */,
 			);

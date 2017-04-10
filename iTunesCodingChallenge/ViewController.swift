@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicatorLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     typealias JSONDictionary = [String : Any]
     var movies = [Movie]()
     var refreshControl = UIRefreshControl()
@@ -201,8 +202,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].getName()
-        //cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
-        cell.priceLabel.text = self.movies[indexPath.row].getPrice()
+        cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
+        if appDelegate.isSeeingRentalPrice == false {
+            cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
+        } else {
+            cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].getRentalPrice()
+        }
         return cell
     }
     
