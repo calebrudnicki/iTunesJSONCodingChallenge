@@ -13,13 +13,17 @@ class Movie {
     private var name: String?
     private var releaseDate: String?
     private var price: String?
+    private var rentalPrice: String?
+    private var summary: String?
     private var image: String?
     private var link: String?
     
-    init(name: String, releaseDate: String, price: String, image: String, link: String) {
+    init(name: String, releaseDate: String, price: String, rentalPrice: String, summary: String, image: String, link: String) {
         self.name = name
         self.releaseDate = releaseDate
         self.price = price
+        self.rentalPrice = rentalPrice
+        self.summary = summary
         self.image = image
         self.link = link
     }
@@ -37,6 +41,16 @@ class Movie {
     //This function returns the price of the movie
     public func getPrice() -> String {
         return price!
+    }
+    
+    //This function returns the rental price of the movie
+    public func getRentalPrice() -> String {
+        return rentalPrice!
+    }
+    
+    //This function returns the summary of the movie
+    public func getSummary() -> String {
+        return summary!
     }
     
     //This function returns the image of the movie

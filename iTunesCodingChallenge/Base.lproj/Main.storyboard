@@ -35,17 +35,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aI8-x5-qMy" id="jLB-ve-Uei">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Na-a0Z">
-                                                    <rect key="frame" x="51" y="36" width="410" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk1-JT-eut">
-                                                    <rect key="frame" x="51" y="65" width="410" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-Na-a0Z">
+                                                    <rect key="frame" x="51" y="37" width="410" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -65,32 +59,40 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ga9-Cq-HEd">
+                                                    <rect key="frame" x="51" y="56" width="115" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="115" id="hSv-zN-gSq"/>
+                                                    </constraints>
+                                                    <state key="normal" title="See Rental Price">
+                                                        <color key="titleColor" red="0.23921568630000001" green="0.45882352939999999" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="priceToggleButtonTapped:" destination="aI8-x5-qMy" eventType="touchUpInside" id="K8M-qh-QPZ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PIq-Na-a0Z" firstAttribute="centerY" secondItem="jLB-ve-Uei" secondAttribute="centerY" id="4cS-AD-Zm5"/>
+                                                <constraint firstAttribute="bottom" secondItem="ga9-Cq-HEd" secondAttribute="bottom" constant="8" id="56F-dc-U9Z"/>
                                                 <constraint firstAttribute="trailing" secondItem="GRn-qX-jMy" secondAttribute="trailing" constant="8" id="Bi3-LT-x7Y"/>
                                                 <constraint firstAttribute="bottom" secondItem="H0S-hq-RWj" secondAttribute="bottom" constant="8" id="EqP-li-spr"/>
+                                                <constraint firstItem="ga9-Cq-HEd" firstAttribute="leading" secondItem="PIq-Na-a0Z" secondAttribute="leading" id="Foh-yR-EsU"/>
                                                 <constraint firstItem="GRn-qX-jMy" firstAttribute="top" secondItem="jLB-ve-Uei" secondAttribute="top" constant="8" id="He0-Wl-mB9"/>
                                                 <constraint firstItem="GRn-qX-jMy" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="NA0-Nf-Yfk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="GRn-qX-jMy" secondAttribute="trailing" id="OwO-Yy-WZ6"/>
                                                 <constraint firstItem="H0S-hq-RWj" firstAttribute="top" secondItem="jLB-ve-Uei" secondAttribute="top" constant="8" id="UXO-Os-U4L"/>
-                                                <constraint firstAttribute="trailing" secondItem="Qk1-JT-eut" secondAttribute="trailing" constant="-47" id="WWP-4K-rb1"/>
                                                 <constraint firstItem="H0S-hq-RWj" firstAttribute="leading" secondItem="jLB-ve-Uei" secondAttribute="leading" constant="8" id="Z9Q-r1-amG"/>
-                                                <constraint firstAttribute="bottom" secondItem="Qk1-JT-eut" secondAttribute="bottom" constant="8" id="bTr-8h-4EA"/>
-                                                <constraint firstItem="Qk1-JT-eut" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="dC3-ut-AFM"/>
-                                                <constraint firstItem="PIq-Na-a0Z" firstAttribute="trailing" secondItem="Qk1-JT-eut" secondAttribute="trailing" id="dhj-IH-EQb"/>
-                                                <constraint firstItem="Qk1-JT-eut" firstAttribute="top" secondItem="PIq-Na-a0Z" secondAttribute="bottom" constant="8" symbolic="YES" id="gyC-ZI-GVX"/>
                                                 <constraint firstItem="GRn-qX-jMy" firstAttribute="trailing" secondItem="PIq-Na-a0Z" secondAttribute="trailing" constant="-55" id="hCa-Ql-mcG"/>
                                                 <constraint firstAttribute="trailing" secondItem="PIq-Na-a0Z" secondAttribute="trailing" constant="-47" id="mev-8f-xXz"/>
-                                                <constraint firstItem="H0S-hq-RWj" firstAttribute="baseline" secondItem="Qk1-JT-eut" secondAttribute="firstBaseline" id="wKN-Uf-ogu"/>
                                                 <constraint firstItem="PIq-Na-a0Z" firstAttribute="leading" secondItem="H0S-hq-RWj" secondAttribute="trailing" constant="18" id="yRD-pw-E5e"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="priceLabel" destination="Qk1-JT-eut" id="yyn-PW-GmL"/>
+                                            <outlet property="priceLabel" destination="PIq-Na-a0Z" id="whW-MY-y7I"/>
+                                            <outlet property="priceToggleButton" destination="ga9-Cq-HEd" id="7gu-NP-5CY"/>
                                             <outlet property="rankLabel" destination="H0S-hq-RWj" id="aAa-gF-rR8"/>
-                                            <outlet property="releaseDateLabel" destination="PIq-Na-a0Z" id="Sb6-FA-FCD"/>
                                             <outlet property="titleLabel" destination="GRn-qX-jMy" id="ARa-TD-dzu"/>
                                         </connections>
                                     </tableViewCell>
@@ -137,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFR-Yd-vbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072.463768115942" y="-614.67391304347836"/>
+            <point key="canvasLocation" x="1071.0144927536232" y="-614.67391304347836"/>
         </scene>
         <!--Top 25-->
         <scene sceneID="tne-QT-ifu">
@@ -179,7 +181,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fvN-rV-WPo" id="k0P-yu-91Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-Ru-Wnj">
@@ -231,7 +233,7 @@
                                         <connections>
                                             <outlet property="priceLabel" destination="wH9-dA-eOm" id="PQS-42-PuT"/>
                                             <outlet property="rankLabel" destination="UE2-0s-OSF" id="zT3-SL-HbK"/>
-                                            <outlet property="releaseDateLabel" destination="98R-Ru-Wnj" id="sK0-lf-ygA"/>
+                                            <outlet property="releaseDateLabel" destination="98R-Ru-Wnj" id="RUb-8D-eRa"/>
                                             <outlet property="titleLabel" destination="0S7-DK-r1E" id="8nJ-AL-RWz"/>
                                         </connections>
                                     </tableViewCell>

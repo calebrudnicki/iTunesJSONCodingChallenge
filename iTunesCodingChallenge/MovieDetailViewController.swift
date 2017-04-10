@@ -42,6 +42,8 @@ class MovieDetailViewController: UIViewController {
                 movieImage.image = #imageLiteral(resourceName: "NoImagePhoto")
             }
         }
+        print("Rental Price: " + (self.movie?.getRentalPrice())!)
+        print("Summary: " + (self.movie?.getSummary())!)
     }
 
     override func didReceiveMemoryWarning() {

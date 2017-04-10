@@ -12,8 +12,9 @@ class ViewControllerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceToggleButton: UIButton!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +24,7 @@ class ViewControllerTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    @IBAction func priceToggleButtonTapped(_ sender: Any) {
+        print("toggling the price")
+    }
 }

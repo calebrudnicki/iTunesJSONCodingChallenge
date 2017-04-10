@@ -73,13 +73,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                         link = attribute["href"] as? String ?? ""
                                     }
                                 }
-                                //Get the name, price, and release date by calling getValue()
+                                //Get the name, price, summary, and release date by calling getValue()
                                 let name = self.getValue(for: "name", in: entry)
                                 let price = self.getValue(for: "price", in: entry)
+                                let rentalPrice = self.getValue(for: "rentalPrice", in: entry)
+                                let summary = self.getValue(for: "summary", in: entry)
+                                print(summary)
                                 let releaseISODate = self.getValue(for: "releaseDate", in: entry)
                                 let releaseDate = ISO8601DateFormatter().date(from: releaseISODate)!
                                 //Create a new movie object and save it into core data
-                                let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, image:image, link:link)
+                                let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, rentalPrice: rentalPrice, summary: summary, image:image, link:link)
                                 self.movies.append(newMovie)
                             }
                         }
@@ -152,6 +155,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getName(), forKey: "name")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getReleaseDate(), forKey: "releaseDate")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getPrice(), forKey: "price")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getRentalPrice(), forKey: "rentalPrice")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getSummary(), forKey: "summary")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getImage(), forKey: "image")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getLink(), forKey: "link")
         
@@ -196,7 +201,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].getName()
-        cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
+        //cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
         cell.priceLabel.text = self.movies[indexPath.row].getPrice()
         return cell
     }

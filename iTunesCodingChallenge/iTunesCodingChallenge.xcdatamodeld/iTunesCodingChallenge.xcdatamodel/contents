@@ -6,8 +6,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rentalPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Movies" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Movies" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

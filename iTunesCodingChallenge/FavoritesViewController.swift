@@ -119,7 +119,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].name
-        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
+        //cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
         cell.priceLabel.text = self.movies[indexPath.row].price
         return cell
     }
@@ -160,7 +160,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             if identifier == "showFavoriteMovieDetails" {
                 let indexPath = tableView.indexPathForSelectedRow!
                 let movieDetailViewController = segue.destination as! MovieDetailViewController
-                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, image: self.movies[indexPath.row].image!, link: self.movies[indexPath.row].link!)
+                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, rentalPrice: self.movies[indexPath.row].rentalPrice!, summary: self.movies[indexPath.row].summary!, image: self.movies[indexPath.row].image!, link: self.movies[indexPath.row].link!)
                 movieDetailViewController.movie = chosenMovie
             }
         }
