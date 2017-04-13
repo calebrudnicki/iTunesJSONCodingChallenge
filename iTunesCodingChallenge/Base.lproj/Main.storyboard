@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aI8-x5-qMy" id="jLB-ve-Uei">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0S-hq-RWj">
@@ -171,7 +171,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fvN-rV-WPo" id="k0P-yu-91Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-Ru-Wnj">
@@ -500,8 +500,8 @@
                                     <segue destination="Tja-VQ-b7X" kind="show" id="eGA-AG-Zpm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFj-TI-eVZ">
-                                <rect key="frame" x="163" y="686" width="88" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFj-TI-eVZ">
+                                <rect key="frame" x="165" y="686" width="84" height="30"/>
                                 <state key="normal" title="Back to App">
                                     <color key="titleColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -509,8 +509,8 @@
                                     <action selector="backToAppButtonTapped:" destination="FVB-ow-Hnk" eventType="touchUpInside" id="abS-wc-bjQ"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wjr-Ax-91o">
-                                <rect key="frame" x="147" y="403" width="121" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wjr-Ax-91o">
+                                <rect key="frame" x="136" y="398.66666666666669" width="143" height="29"/>
                                 <segments>
                                     <segment title="Purchase"/>
                                     <segment title="Rental"/>
@@ -520,11 +520,29 @@
                                     <action selector="priceSegmentedControlHasChanged:" destination="FVB-ow-Hnk" eventType="valueChanged" id="n8F-sm-eMr"/>
                                 </connections>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vsY-Wy-dbK">
+                                <rect key="frame" x="0.0" y="92" width="414" height="220.66666666666669"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u5N-4b-Ws3">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u5N-4b-Ws3" id="zAR-3x-1Y3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.57490402460000001" green="0.73577624559999999" blue="0.84431236980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vsY-Wy-dbK" secondAttribute="trailing" id="1fL-bi-PMf"/>
+                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="top" secondItem="E2x-Xx-2Za" secondAttribute="bottom" constant="72" id="7He-fc-ssN"/>
                             <constraint firstItem="wjr-Ax-91o" firstAttribute="top" secondItem="7W5-02-vmh" secondAttribute="bottom" constant="8" id="APH-EZ-fjy"/>
                             <constraint firstItem="RFj-TI-eVZ" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="JOD-bP-J0q"/>
+                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="leading" secondItem="LUg-Bd-VTp" secondAttribute="leading" id="Mts-eY-53q"/>
                             <constraint firstItem="lYu-hD-8sB" firstAttribute="top" secondItem="LUg-Bd-VTp" secondAttribute="top" id="eEd-vP-LNe"/>
                             <constraint firstItem="tb1-tG-vQ9" firstAttribute="top" secondItem="lYu-hD-8sB" secondAttribute="bottom" id="eJb-o0-o5x"/>
                             <constraint firstItem="7W5-02-vmh" firstAttribute="centerY" secondItem="LUg-Bd-VTp" secondAttribute="centerY" id="fI0-ZM-mnx"/>
@@ -533,6 +551,7 @@
                             <constraint firstItem="lYu-hD-8sB" firstAttribute="leading" secondItem="LUg-Bd-VTp" secondAttribute="leading" id="t01-BO-bDj"/>
                             <constraint firstItem="wjr-Ax-91o" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="t3g-BW-45B"/>
                             <constraint firstAttribute="trailing" secondItem="lYu-hD-8sB" secondAttribute="trailing" id="yRj-4S-Bbn"/>
+                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="height" secondItem="lYu-hD-8sB" secondAttribute="height" multiplier="0.3" id="zho-yl-7w5"/>
                         </constraints>
                     </view>
                     <connections>

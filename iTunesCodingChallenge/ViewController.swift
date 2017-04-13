@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 //Get the string of the image by getting the value at the key im:image
                                 var image = ""
                                 if let images = entry["im:image"] as? [JSONDictionary], !images.isEmpty {
-                                    image = images[0]["label"] as? String ?? ""
+                                    image = images[2]["label"] as? String ?? ""
                                 }
                                 //Get the string of the link by getting the value at the key href
                                 var link = ""
@@ -118,7 +118,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //This function handles the refreshing of the data from the API
     func refreshData() {
         self.movies.removeAll()
-        self.setCurrentDate()
         self.fetchJSON(url: url)
         if self.refreshControl.isRefreshing {
             self.refreshControl.endRefreshing()
@@ -203,6 +202,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].getName()
         cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
+        //print(self.movies[indexPath.row].getRentalPrice())
         if appDelegate.isSeeingRentalPrice == false {
             cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
         } else {
