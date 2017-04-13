@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>iTunesCodingChallenge WatchKit (Complication).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>iTunesCodingChallenge WatchKit (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>iTunesCodingChallenge WatchKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>iTunesCodingChallenge.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +28,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>82298C6C1E803D8F00A5E544</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82F07BC61E9FE4940062CACF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
