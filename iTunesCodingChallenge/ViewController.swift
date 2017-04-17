@@ -26,9 +26,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var refreshControl = UIRefreshControl()
     let url = URL(string: "https://itunes.apple.com/us/rss/topmovies/limit=25/json")!
     
-    //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate() and fetchJSON()
+    //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate(), fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PhoneSession.sharedInstance.startSession()
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.receivedTellPhoneToStartGameNotification(_:)), name:NSNotification.Name(rawValue: "tellPhoneToStopGame"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.receivedTellPhoneToStartGameNotification(_:)), name:NSNotification.Name(rawValue: "tellPhoneToBeController"), object: nil)
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -38,10 +43,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.fetchJSON(url: url)
     }
     
+    /////////////////////////
+    func receivedTellPhoneToStartGameNotification(_ notification: Notification) {
+        print("Got watch notification")
+        tableView.tintColor = UIColor.red
+    }
+    /////////////////////////
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    //This function removes itself as an observer when the view disappears
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //This function reloads the table view every time the view appears
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
     //This functions fetches from the JSON file and creates new movie objects before adding each of them into the array of Movie objects
     func fetchJSON(url: URL) {
         self.activityIndicator.startAnimating()
@@ -79,7 +102,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 let price = self.getValue(for: "price", in: entry)
                                 let rentalPrice = self.getValue(for: "rentalPrice", in: entry)
                                 let summary = self.getValue(for: "summary", in: entry)
-                                print(summary)
                                 let releaseISODate = self.getValue(for: "releaseDate", in: entry)
                                 let releaseDate = ISO8601DateFormatter().date(from: releaseISODate)!
                                 //Create a new movie object and save it into core data
@@ -149,7 +171,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This function adds a movie to CoreData as one of the users favorite movies and send them a notification
     func addMovieToFavorites(_ indexPath: NSIndexPath) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let newFavoriteMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getName(), forKey: "name")
@@ -202,11 +223,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].getName()
         cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
-        //print(self.movies[indexPath.row].getRentalPrice())
-        if appDelegate.isSeeingRentalPrice == false {
-            cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
-        } else {
+        if appDelegate.isSeeingRentalPrice == true && self.movies[indexPath.row].getRentalPrice() != "" {
             cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].getRentalPrice()
+        } else {
+            cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
         }
         return cell
     }

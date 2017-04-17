@@ -9,7 +9,6 @@
 import WatchKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet var tableView: WKInterfaceTable!
@@ -19,6 +18,7 @@ class InterfaceController: WKInterfaceController {
     //This function calls loadTable()
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        WatchSession.sharedInstance.startSession()
         self.loadTable()
     }
     
@@ -41,4 +41,8 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
+    @IBAction func buttonTapped() {
+        WatchSession.sharedInstance.tellPhoneToStopGame()
+    }
+
 }

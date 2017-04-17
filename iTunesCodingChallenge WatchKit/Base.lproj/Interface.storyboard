@@ -28,6 +28,11 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <button width="1" alignment="left" title="Button" id="lDt-Qc-Hgo">
+                            <connections>
+                                <action selector="buttonTapped" destination="AgC-eL-Hgc" id="xGb-5o-wz8"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="tableView" destination="KkA-UT-PUm" id="7IC-bh-JUA"/>

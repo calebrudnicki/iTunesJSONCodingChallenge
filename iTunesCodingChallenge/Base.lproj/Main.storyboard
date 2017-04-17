@@ -478,7 +478,7 @@
         <!--Information Screen View Controller-->
         <scene sceneID="kF9-E3-SRW">
             <objects>
-                <viewController id="FVB-ow-Hnk" customClass="InformationScreenViewController" customModule="iTunesCodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="FVB-ow-Hnk" customClass="InformationScreenViewController" customModule="iTunesCodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E2x-Xx-2Za"/>
                         <viewControllerLayoutGuide type="bottom" id="tb1-tG-vQ9"/>
@@ -490,16 +490,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clouds" translatesAutoresizingMaskIntoConstraints="NO" id="lYu-hD-8sB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-02-vmh">
-                                <rect key="frame" x="156" y="346.66666666666669" width="102" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Get Help">
-                                    <color key="titleColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Tja-VQ-b7X" kind="show" id="eGA-AG-Zpm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFj-TI-eVZ">
                                 <rect key="frame" x="165" y="686" width="84" height="30"/>
                                 <state key="normal" title="Back to App">
@@ -509,53 +499,47 @@
                                     <action selector="backToAppButtonTapped:" destination="FVB-ow-Hnk" eventType="touchUpInside" id="abS-wc-bjQ"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wjr-Ax-91o">
-                                <rect key="frame" x="136" y="398.66666666666669" width="143" height="29"/>
-                                <segments>
-                                    <segment title="Purchase"/>
-                                    <segment title="Rental"/>
-                                </segments>
-                                <color key="tintColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="priceSegmentedControlHasChanged:" destination="FVB-ow-Hnk" eventType="valueChanged" id="n8F-sm-eMr"/>
-                                </connections>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vsY-Wy-dbK">
-                                <rect key="frame" x="0.0" y="92" width="414" height="220.66666666666669"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u5N-4b-Ws3">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u5N-4b-Ws3" id="zAR-3x-1Y3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-SE-ylB">
+                                <rect key="frame" x="135" y="332" width="143" height="72"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-02-vmh">
+                                        <rect key="frame" x="20.666666666666657" y="0.0" width="102.00000000000003" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="Get Help">
+                                            <color key="titleColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Tja-VQ-b7X" kind="show" id="eGA-AG-Zpm"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wjr-Ax-91o">
+                                        <rect key="frame" x="0.0" y="44" width="143" height="29"/>
+                                        <segments>
+                                            <segment title="Purchase"/>
+                                            <segment title="Rental"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="priceSegmentedControllerHasChanged:" destination="FVB-ow-Hnk" eventType="valueChanged" id="nfu-mP-23w"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.57490402460000001" green="0.73577624559999999" blue="0.84431236980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vsY-Wy-dbK" secondAttribute="trailing" id="1fL-bi-PMf"/>
-                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="top" secondItem="E2x-Xx-2Za" secondAttribute="bottom" constant="72" id="7He-fc-ssN"/>
-                            <constraint firstItem="wjr-Ax-91o" firstAttribute="top" secondItem="7W5-02-vmh" secondAttribute="bottom" constant="8" id="APH-EZ-fjy"/>
+                            <constraint firstItem="P6z-SE-ylB" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="EDt-4u-YmU"/>
                             <constraint firstItem="RFj-TI-eVZ" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="JOD-bP-J0q"/>
-                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="leading" secondItem="LUg-Bd-VTp" secondAttribute="leading" id="Mts-eY-53q"/>
+                            <constraint firstItem="P6z-SE-ylB" firstAttribute="centerY" secondItem="LUg-Bd-VTp" secondAttribute="centerY" id="dHU-hL-85N"/>
                             <constraint firstItem="lYu-hD-8sB" firstAttribute="top" secondItem="LUg-Bd-VTp" secondAttribute="top" id="eEd-vP-LNe"/>
                             <constraint firstItem="tb1-tG-vQ9" firstAttribute="top" secondItem="lYu-hD-8sB" secondAttribute="bottom" id="eJb-o0-o5x"/>
-                            <constraint firstItem="7W5-02-vmh" firstAttribute="centerY" secondItem="LUg-Bd-VTp" secondAttribute="centerY" id="fI0-ZM-mnx"/>
                             <constraint firstItem="tb1-tG-vQ9" firstAttribute="top" secondItem="RFj-TI-eVZ" secondAttribute="bottom" constant="20" id="hQO-VZ-AYX"/>
-                            <constraint firstItem="7W5-02-vmh" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="nXg-0K-UFw"/>
                             <constraint firstItem="lYu-hD-8sB" firstAttribute="leading" secondItem="LUg-Bd-VTp" secondAttribute="leading" id="t01-BO-bDj"/>
-                            <constraint firstItem="wjr-Ax-91o" firstAttribute="centerX" secondItem="LUg-Bd-VTp" secondAttribute="centerX" id="t3g-BW-45B"/>
                             <constraint firstAttribute="trailing" secondItem="lYu-hD-8sB" secondAttribute="trailing" id="yRj-4S-Bbn"/>
-                            <constraint firstItem="vsY-Wy-dbK" firstAttribute="height" secondItem="lYu-hD-8sB" secondAttribute="height" multiplier="0.3" id="zho-yl-7w5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="priceSegmentedControl" destination="wjr-Ax-91o" id="m5T-Tl-gkU"/>
+                        <outlet property="priceSegmentedControl" destination="wjr-Ax-91o" id="74h-CE-02o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POI-01-ClT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -589,6 +573,6 @@
         <image name="OnboardingFingerTap" width="30" height="59"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WTT-jD-WF4"/>
+        <segue reference="XSJ-IK-EcX"/>
     </inferredMetricsTieBreakers>
 </document>

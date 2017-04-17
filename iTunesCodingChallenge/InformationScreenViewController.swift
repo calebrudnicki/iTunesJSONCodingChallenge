@@ -17,7 +17,7 @@ class InformationScreenViewController: UIViewController {
     //This function sets the segmented controller to the correct selected index
     override func viewDidLoad() {
         super.viewDidLoad()
-        if appDelegate.isSeeingRentalPrice == false {
+        if appDelegate.isSeeingRentalPrice! == false {
             priceSegmentedControl.selectedSegmentIndex = 0
         } else {
             priceSegmentedControl.selectedSegmentIndex = 1
@@ -33,9 +33,8 @@ class InformationScreenViewController: UIViewController {
         return .lightContent
     }
     
-    //THis functions changes the app wide price value when the segmented controller is changed
-    @IBAction func priceSegmentedControlHasChanged(_ sender: Any) {
-        print("Changed")
+    //This functions changes the app wide price value when the segmented controller is changed
+    @IBAction func priceSegmentedControllerHasChanged(_ sender: Any) {
         if priceSegmentedControl.selectedSegmentIndex == 0 {
             appDelegate.isSeeingRentalPrice = false
         } else {

@@ -7,15 +7,26 @@
 //
 
 import WatchKit
+import CoreData
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+//        print("11")
+//        WatchSession.sharedInstance.startSession()
+//        print("22")
+        DispatchQueue.main.async {
+            WatchSession.sharedInstance.startSession()
+        }
+
     }
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//        print("1")
+//        WatchSession.sharedInstance.tellPhoneToStopGame()
+//        print("2")
     }
 
     func applicationWillResignActive() {

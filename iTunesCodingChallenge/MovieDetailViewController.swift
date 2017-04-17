@@ -18,6 +18,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var movie: Movie?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //This function sets the back button to white and all of the labels and images to blank or nothing when the view loads
     override func viewDidLoad() {
@@ -34,7 +35,11 @@ class MovieDetailViewController: UIViewController {
         self.activityIndicator.stopAnimating()
         movieTitleLabel.text = self.movie?.getName()
         movieReleaseDateLabel.text = "Release Date: " + (self.movie?.getReleaseDate())!
-        moviePriceLabel.text = "Price: " + (self.movie?.getPrice())!
+        if appDelegate.isSeeingRentalPrice == true && self.movie?.getRentalPrice() != "" {
+            moviePriceLabel.text = "Rent: " + (self.movie?.getRentalPrice())!
+        } else {
+            moviePriceLabel.text = "Purchase: " + (self.movie?.getPrice())!
+        }
         if let url = NSURL(string: (self.movie?.getImage())!) {
             if let data = NSData(contentsOf: url as URL) {
                 movieImage.image = UIImage(data: data as Data)
@@ -42,7 +47,6 @@ class MovieDetailViewController: UIViewController {
                 movieImage.image = #imageLiteral(resourceName: "NoImagePhoto")
             }
         }
-        print("Rental Price: " + (self.movie?.getRentalPrice())!)
         print("Summary: " + (self.movie?.getSummary())!)
     }
 
