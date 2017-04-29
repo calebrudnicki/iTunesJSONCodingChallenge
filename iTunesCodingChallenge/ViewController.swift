@@ -29,11 +29,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate(), fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        PhoneSession.sharedInstance.startSession()
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.receivedTellPhoneToStartGameNotification(_:)), name:NSNotification.Name(rawValue: "tellPhoneToStopGame"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.receivedTellPhoneToStartGameNotification(_:)), name:NSNotification.Name(rawValue: "tellPhoneToBeController"), object: nil)
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -42,14 +37,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView?.addSubview(refreshControl)
         self.fetchJSON(url: url)
     }
-    
-    /////////////////////////
-    func receivedTellPhoneToStartGameNotification(_ notification: Notification) {
-        print("Got watch notification")
-        tableView.tintColor = UIColor.red
-    }
-    /////////////////////////
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.activityIndicatorLabel.text = "Couldn't connect to server, pull down to refresh"
+                    self.refreshControl.endRefreshing()
                 }
                 self.promptUserToRefetchJSON()
                 print(error!)

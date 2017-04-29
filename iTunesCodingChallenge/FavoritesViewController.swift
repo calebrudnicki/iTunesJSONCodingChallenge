@@ -121,7 +121,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].name
         cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
-        if appDelegate.isSeeingRentalPrice == true && self.movies[indexPath.row].rentalPrice != "" {
+        if appDelegate.isSeeingRentalPrice == true && self.movies[indexPath.row].rentalPrice != nil {
             cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
         } else {
             cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].price!

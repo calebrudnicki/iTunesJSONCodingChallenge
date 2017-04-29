@@ -19,57 +19,16 @@
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
 		82AAB7231E9C0D5600A7568D /* InformationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */; };
-		82F07BCB1E9FE4940062CACF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F07BC91E9FE4940062CACF /* Interface.storyboard */; };
-		82F07BCD1E9FE4940062CACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F07BCC1E9FE4940062CACF /* Assets.xcassets */; };
-		82F07BD41E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 82F07BD31E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		82F07BDB1E9FE4940062CACF /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F07BDA1E9FE4940062CACF /* InterfaceController.swift */; };
-		82F07BDD1E9FE4940062CACF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F07BDC1E9FE4940062CACF /* ExtensionDelegate.swift */; };
-		82F07BDF1E9FE4940062CACF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F07BDE1E9FE4940062CACF /* NotificationController.swift */; };
-		82F07BE11E9FE4940062CACF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F07BE01E9FE4940062CACF /* ComplicationController.swift */; };
-		82F07BE31E9FE4940062CACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F07BE21E9FE4940062CACF /* Assets.xcassets */; };
-		82F07BE71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 82F07BC71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app */; };
-		82F07BF31E9FF0270062CACF /* InterfaceControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F07BF21E9FF0270062CACF /* InterfaceControllerTableViewCell.swift */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
-		82F8FF8A1EA02A13007AB32D /* PhoneSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8FF891EA02A13007AB32D /* PhoneSession.swift */; };
-		82F8FF8C1EA02A67007AB32D /* WatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8FF8B1EA02A67007AB32D /* WatchSession.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		82F07BD51E9FE4940062CACF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82298C651E803D8F00A5E544 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 82F07BD21E9FE4940062CACF;
-			remoteInfo = "iTunesCodingChallenge WatchKit Extension";
-		};
-		82F07BE51E9FE4940062CACF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82298C651E803D8F00A5E544 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 82F07BC61E9FE4940062CACF;
-			remoteInfo = "iTunesCodingChallenge WatchKit";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		82F07BED1E9FE4940062CACF /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				82F07BD41E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		82F07BEF1E9FE4940062CACF /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				82F07BE71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,22 +50,7 @@
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenViewController.swift; sourceTree = "<group>"; };
-		82F07BC71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunesCodingChallenge WatchKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F07BCA1E9FE4940062CACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		82F07BCC1E9FE4940062CACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82F07BCE1E9FE4940062CACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82F07BD31E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iTunesCodingChallenge WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F07BD91E9FE4940062CACF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		82F07BDA1E9FE4940062CACF /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		82F07BDC1E9FE4940062CACF /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		82F07BDE1E9FE4940062CACF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		82F07BE01E9FE4940062CACF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		82F07BE21E9FE4940062CACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82F07BE41E9FE4940062CACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82F07BF21E9FF0270062CACF /* InterfaceControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceControllerTableViewCell.swift; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		82F8FF891EA02A13007AB32D /* PhoneSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSession.swift; sourceTree = "<group>"; };
-		82F8FF8B1EA02A67007AB32D /* WatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,13 +62,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82F07BD01E9FE4940062CACF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -132,8 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				82298C6F1E803D8F00A5E544 /* iTunesCodingChallenge */,
-				82F07BC81E9FE4940062CACF /* iTunesCodingChallenge WatchKit */,
-				82F07BD71E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension */,
 				82298C6E1E803D8F00A5E544 /* Products */,
 				82F5CFD01E96C02F00B3561C /* Frameworks */,
 			);
@@ -143,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				82298C6D1E803D8F00A5E544 /* iTunesCodingChallenge.app */,
-				82F07BC71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app */,
-				82F07BD31E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
-				82F8FF891EA02A13007AB32D /* PhoneSession.swift */,
 				82820CB61E8472380083F75A /* Movie.swift */,
 				82AAB7221E9C0D5600A7568D /* InformationScreenViewController.swift */,
 				825D52071E936242007EDBFC /* OnboardingViewController.swift */,
@@ -168,40 +100,6 @@
 				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
 			);
 			path = iTunesCodingChallenge;
-			sourceTree = "<group>";
-		};
-		82F07BC81E9FE4940062CACF /* iTunesCodingChallenge WatchKit */ = {
-			isa = PBXGroup;
-			children = (
-				82F07BC91E9FE4940062CACF /* Interface.storyboard */,
-				82F07BCC1E9FE4940062CACF /* Assets.xcassets */,
-				82F07BCE1E9FE4940062CACF /* Info.plist */,
-			);
-			path = "iTunesCodingChallenge WatchKit";
-			sourceTree = "<group>";
-		};
-		82F07BD71E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				82F8FF8B1EA02A67007AB32D /* WatchSession.swift */,
-				82F07BDA1E9FE4940062CACF /* InterfaceController.swift */,
-				82F07BF21E9FF0270062CACF /* InterfaceControllerTableViewCell.swift */,
-				82F07BDC1E9FE4940062CACF /* ExtensionDelegate.swift */,
-				82F07BDE1E9FE4940062CACF /* NotificationController.swift */,
-				82F07BE01E9FE4940062CACF /* ComplicationController.swift */,
-				82F07BE21E9FE4940062CACF /* Assets.xcassets */,
-				82F07BE41E9FE4940062CACF /* Info.plist */,
-				82F07BD81E9FE4940062CACF /* Supporting Files */,
-			);
-			path = "iTunesCodingChallenge WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		82F07BD81E9FE4940062CACF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				82F07BD91E9FE4940062CACF /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		82F5CFD01E96C02F00B3561C /* Frameworks */ = {
@@ -227,46 +125,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				82F07BE61E9FE4940062CACF /* PBXTargetDependency */,
 			);
 			name = iTunesCodingChallenge;
 			productName = iTunesCodingChallenge;
 			productReference = 82298C6D1E803D8F00A5E544 /* iTunesCodingChallenge.app */;
 			productType = "com.apple.product-type.application";
-		};
-		82F07BC61E9FE4940062CACF /* iTunesCodingChallenge WatchKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82F07BEE1E9FE4940062CACF /* Build configuration list for PBXNativeTarget "iTunesCodingChallenge WatchKit" */;
-			buildPhases = (
-				82F07BC51E9FE4940062CACF /* Resources */,
-				82F07BED1E9FE4940062CACF /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				82F07BD61E9FE4940062CACF /* PBXTargetDependency */,
-			);
-			name = "iTunesCodingChallenge WatchKit";
-			productName = "iTunesCodingChallenge WatchKit";
-			productReference = 82F07BC71E9FE4940062CACF /* iTunesCodingChallenge WatchKit.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		82F07BD21E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82F07BEC1E9FE4940062CACF /* Build configuration list for PBXNativeTarget "iTunesCodingChallenge WatchKit Extension" */;
-			buildPhases = (
-				82F07BCF1E9FE4940062CACF /* Sources */,
-				82F07BD01E9FE4940062CACF /* Frameworks */,
-				82F07BD11E9FE4940062CACF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "iTunesCodingChallenge WatchKit Extension";
-			productName = "iTunesCodingChallenge WatchKit Extension";
-			productReference = 82F07BD31E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -279,16 +142,6 @@
 				ORGANIZATIONNAME = "Caleb Rudnicki";
 				TargetAttributes = {
 					82298C6C1E803D8F00A5E544 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 92DETN2MKQ;
-						ProvisioningStyle = Automatic;
-					};
-					82F07BC61E9FE4940062CACF = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 92DETN2MKQ;
-						ProvisioningStyle = Automatic;
-					};
-					82F07BD21E9FE4940062CACF = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 92DETN2MKQ;
 						ProvisioningStyle = Automatic;
@@ -309,8 +162,6 @@
 			projectRoot = "";
 			targets = (
 				82298C6C1E803D8F00A5E544 /* iTunesCodingChallenge */,
-				82F07BC61E9FE4940062CACF /* iTunesCodingChallenge WatchKit */,
-				82F07BD21E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -326,23 +177,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82F07BC51E9FE4940062CACF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82F07BCD1E9FE4940062CACF /* Assets.xcassets in Resources */,
-				82F07BCB1E9FE4940062CACF /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82F07BD11E9FE4940062CACF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82F07BE31E9FE4940062CACF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -353,7 +187,6 @@
 				82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */,
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
-				82F8FF8A1EA02A13007AB32D /* PhoneSession.swift in Sources */,
 				825D52081E936242007EDBFC /* OnboardingViewController.swift in Sources */,
 				82820CB71E8472380083F75A /* Movie.swift in Sources */,
 				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
@@ -363,33 +196,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82F07BCF1E9FE4940062CACF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82F07BDF1E9FE4940062CACF /* NotificationController.swift in Sources */,
-				82F07BE11E9FE4940062CACF /* ComplicationController.swift in Sources */,
-				82F07BDD1E9FE4940062CACF /* ExtensionDelegate.swift in Sources */,
-				82F8FF8C1EA02A67007AB32D /* WatchSession.swift in Sources */,
-				82F07BDB1E9FE4940062CACF /* InterfaceController.swift in Sources */,
-				82F07BF31E9FF0270062CACF /* InterfaceControllerTableViewCell.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		82F07BD61E9FE4940062CACF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 82F07BD21E9FE4940062CACF /* iTunesCodingChallenge WatchKit Extension */;
-			targetProxy = 82F07BD51E9FE4940062CACF /* PBXContainerItemProxy */;
-		};
-		82F07BE61E9FE4940062CACF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 82F07BC61E9FE4940062CACF /* iTunesCodingChallenge WatchKit */;
-			targetProxy = 82F07BE51E9FE4940062CACF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		82298C741E803D8F00A5E544 /* Main.storyboard */ = {
@@ -406,14 +213,6 @@
 				82298C7D1E803D8F00A5E544 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		82F07BC91E9FE4940062CACF /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82F07BCA1E9FE4940062CACF /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -536,76 +335,6 @@
 			};
 			name = Release;
 		};
-		82F07BE81E9FE4940062CACF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92DETN2MKQ;
-				IBSC_MODULE = iTunesCodingChallenge_WatchKit_Extension;
-				INFOPLIST_FILE = "iTunesCodingChallenge WatchKit/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.calebrudnicki.top25.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Debug;
-		};
-		82F07BE91E9FE4940062CACF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 92DETN2MKQ;
-				IBSC_MODULE = iTunesCodingChallenge_WatchKit_Extension;
-				INFOPLIST_FILE = "iTunesCodingChallenge WatchKit/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.calebrudnicki.top25.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Release;
-		};
-		82F07BEA1E9FE4940062CACF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 92DETN2MKQ;
-				INFOPLIST_FILE = "iTunesCodingChallenge WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.calebrudnicki.top25.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Debug;
-		};
-		82F07BEB1E9FE4940062CACF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 92DETN2MKQ;
-				INFOPLIST_FILE = "iTunesCodingChallenge WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.calebrudnicki.top25.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -623,24 +352,6 @@
 			buildConfigurations = (
 				82298C831E803D8F00A5E544 /* Debug */,
 				82298C841E803D8F00A5E544 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		82F07BEC1E9FE4940062CACF /* Build configuration list for PBXNativeTarget "iTunesCodingChallenge WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				82F07BEA1E9FE4940062CACF /* Debug */,
-				82F07BEB1E9FE4940062CACF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		82F07BEE1E9FE4940062CACF /* Build configuration list for PBXNativeTarget "iTunesCodingChallenge WatchKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				82F07BE81E9FE4940062CACF /* Debug */,
-				82F07BE91E9FE4940062CACF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
