@@ -11,16 +11,16 @@ import UIKit
 class InformationScreenViewController: UIViewController {
 
     @IBOutlet weak var priceSegmentedControl: UISegmentedControl!
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+        
     //This function sets the segmented controller to the correct selected index
     override func viewDidLoad() {
         super.viewDidLoad()
-        if appDelegate.isSeeingRentalPrice! == false {
-            priceSegmentedControl.selectedSegmentIndex = 0
-        } else {
-            priceSegmentedControl.selectedSegmentIndex = 1
+        if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
+            if priceDefault == false {
+                priceSegmentedControl.selectedSegmentIndex = 0
+            } else {
+                priceSegmentedControl.selectedSegmentIndex = 1
+            }
         }
     }
 
@@ -36,9 +36,9 @@ class InformationScreenViewController: UIViewController {
     //This functions changes the app wide price value when the segmented controller is changed
     @IBAction func priceSegmentedControllerHasChanged(_ sender: Any) {
         if priceSegmentedControl.selectedSegmentIndex == 0 {
-            appDelegate.isSeeingRentalPrice = false
+            UserDefaults.standard.set(false, forKey: "isSeeingRentalPrice")
         } else {
-            appDelegate.isSeeingRentalPrice = true
+            UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
         }
     }
 

@@ -35,10 +35,12 @@ class MovieDetailViewController: UIViewController {
         self.activityIndicator.stopAnimating()
         movieTitleLabel.text = self.movie?.getName()
         movieReleaseDateLabel.text = "Release Date: " + (self.movie?.getReleaseDate())!
-        if appDelegate.isSeeingRentalPrice == true && self.movie?.getRentalPrice() != "" {
-            moviePriceLabel.text = "Rent: " + (self.movie?.getRentalPrice())!
-        } else {
-            moviePriceLabel.text = "Purchase: " + (self.movie?.getPrice())!
+        if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
+            if priceDefault == true && self.movie?.getRentalPrice() != nil {
+                moviePriceLabel.text = "Rent: " + (self.movie?.getRentalPrice())!
+            } else {
+                moviePriceLabel.text = "Purchase: " + (self.movie?.getPrice())!
+            }
         }
         if let url = NSURL(string: (self.movie?.getImage())!) {
             if let data = NSData(contentsOf: url as URL) {
@@ -47,7 +49,7 @@ class MovieDetailViewController: UIViewController {
                 movieImage.image = #imageLiteral(resourceName: "NoImagePhoto")
             }
         }
-        print("Summary: " + (self.movie?.getSummary())!)
+        //print("Summary: " + (self.movie?.getSummary())!)
     }
 
     override func didReceiveMemoryWarning() {

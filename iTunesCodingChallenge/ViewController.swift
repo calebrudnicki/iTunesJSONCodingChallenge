@@ -211,10 +211,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.rankLabel.text = String(indexPath.row + 1)
         cell.titleLabel.text = self.movies[indexPath.row].getName()
         cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
-        if appDelegate.isSeeingRentalPrice == true && self.movies[indexPath.row].getRentalPrice() != "" {
-            cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].getRentalPrice()
-        } else {
-            cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
+        if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
+            if priceDefault == true && self.movies[indexPath.row].getRentalPrice() != "" {
+                cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].getRentalPrice()
+            } else {
+                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPrice()
+            }
         }
         return cell
     }

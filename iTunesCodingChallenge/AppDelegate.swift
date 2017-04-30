@@ -14,7 +14,6 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var isSeeingRentalPrice: Bool? = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -29,8 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var vc: UIViewController
         
         if (UserDefaults.standard.value(forKey: "name") as? String) == nil {
-            //Show onboarding screen
+            //Show onboarding screen and sets the default user defaults
             vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+            UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
         } else {
             //Show the main screen
             vc = storyboard.instantiateInitialViewController()!
