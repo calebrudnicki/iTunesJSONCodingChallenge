@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This function reloads the table view every time the view appears
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
     //This functions fetches from the JSON file and creates new movie objects before adding each of them into the array of Movie objects

@@ -35,8 +35,9 @@ class MovieDetailViewController: UIViewController {
         self.activityIndicator.stopAnimating()
         movieTitleLabel.text = self.movie?.getName()
         movieReleaseDateLabel.text = "Release Date: " + (self.movie?.getReleaseDate())!
+        print(self.movie?.getRentalPrice() ?? "No rental price")
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
-            if priceDefault == true && self.movie?.getRentalPrice() != nil {
+            if priceDefault == true && self.movie?.getRentalPrice() != "" {
                 moviePriceLabel.text = "Rent: " + (self.movie?.getRentalPrice())!
             } else {
                 moviePriceLabel.text = "Purchase: " + (self.movie?.getPrice())!
