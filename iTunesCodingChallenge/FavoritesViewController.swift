@@ -29,11 +29,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.decideToShowNoFavoritesLabel()
     }
     
-    //This function reloads the table view every time the view appears
-    override func viewDidAppear(_ animated: Bool) {
-        self.tableView.reloadData()
-    }
-    
     //This function calls reorderCoreData() when the back button is tapped
     override func willMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
@@ -99,7 +94,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                 currentMovie.setValue(self.movies[i].name, forKey: "name")
                 currentMovie.setValue(self.movies[i].releaseDate, forKey: "releaseDate")
                 currentMovie.setValue(self.movies[i].price, forKey: "price")
-                currentMovie.setValue(self.movies[i].rentalPrice, forKey: "rentalPrice")
                 currentMovie.setValue(self.movies[i].image, forKey: "image")
                 currentMovie.setValue(self.movies[i].link, forKey: "link")
                 context.delete(self.movies[i])
@@ -128,7 +122,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         cell.titleLabel.text = self.movies[indexPath.row].name
         cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
-            if priceDefault == true && self.movies[indexPath.row].rentalPrice != "" {
+            if priceDefault == true && self.movies[indexPath.row].rentalPrice != nil {
                 cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
             } else {
                 cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].price!
@@ -173,11 +167,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             if identifier == "showFavoriteMovieDetails" {
                 let indexPath = tableView.indexPathForSelectedRow!
                 let movieDetailViewController = segue.destination as! MovieDetailViewController
-                var rentalPrice = "No rental price :("
-                if (self.movies[indexPath.row].rentalPrice != nil) {
-                    rentalPrice = self.movies[indexPath.row].rentalPrice!
-                }
-                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, rentalPrice: rentalPrice, summary: "", image: self.movies[indexPath.row].image!, link: self.movies[indexPath.row].link!)
+                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, rentalPrice: self.movies[indexPath.row].rentalPrice!, summary: self.movies[indexPath.row].summary!, image: self.movies[indexPath.row].image!, rights: self.movies[indexPath.row].rights!, link: self.movies[indexPath.row].link!)
                 movieDetailViewController.movie = chosenMovie
             }
         }

@@ -16,15 +16,17 @@ class Movie {
     private var rentalPrice: String?
     private var summary: String?
     private var image: String?
+    private var rights: String?
     private var link: String?
     
-    init(name: String, releaseDate: String, price: String, rentalPrice: String, summary: String, image: String, link: String) {
+    init(name: String, releaseDate: String, price: String, rentalPrice: String, summary: String, image: String, rights: String, link: String) {
         self.name = name
         self.releaseDate = releaseDate
         self.price = price
         self.rentalPrice = rentalPrice
         self.summary = summary
         self.image = image
+        self.rights = rights
         self.link = link
     }
     
@@ -52,10 +54,15 @@ class Movie {
     public func getSummary() -> String {
         return summary!
     }
-    
+
     //This function returns the image of the movie
     public func getImage() -> String {
         return image!
+    }
+    
+    //This function returns the right of the movie
+    public func getRights() -> String {
+        return rights!
     }
     
     //This function returns the link of the movie

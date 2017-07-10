@@ -49,7 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This function reloads the table view every time the view appears
     override func viewDidAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     //This functions fetches from the JSON file and creates new movie objects before adding each of them into the array of Movie objects
@@ -86,14 +86,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                     }
                                 }
                                 //Get the name, price, summary, and release date by calling getValue()
-                                let name = self.getValue(for: "name", in: entry)
-                                let price = self.getValue(for: "price", in: entry)
-                                let rentalPrice = self.getValue(for: "rentalPrice", in: entry)
-                                let summary = self.getValue(for: "summary", in: entry)
-                                let releaseISODate = self.getValue(for: "releaseDate", in: entry)
+                                let name = self.getValueWithIM(for: "name", in: entry)
+                                let price = self.getValueWithIM(for: "price", in: entry)
+                                let rentalPrice = self.getValueWithIM(for: "rentalPrice", in: entry)
+                                let summary = self.getValueWithoutIM(for: "summary", in: entry)
+                                let rights = self.getValueWithoutIM(for: "rights", in: entry)
+                                let releaseISODate = self.getValueWithIM(for: "releaseDate", in: entry)
                                 let releaseDate = ISO8601DateFormatter().date(from: releaseISODate)!
                                 //Create a new movie object and save it into core data
-                                let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, rentalPrice: rentalPrice, summary: summary, image:image, link:link)
+                                let newMovie = Movie(name: name, releaseDate: self.outputFormatter.string(from: releaseDate), price: price, rentalPrice: rentalPrice, summary: summary, image:image, rights:rights, link:link)
                                 self.movies.append(newMovie)
                             }
                         }
@@ -113,8 +114,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //This functions searches into the JSON file by im:key and pulls out a value at that key
-    func getValue(for key : String, in dict : JSONDictionary) -> String {
+    func getValueWithIM(for key: String, in dict: JSONDictionary) -> String {
         guard let temp = dict["im:" + key] as? JSONDictionary else { return "" }
+        return temp["label"] as? String ?? ""
+    }
+    
+    func getValueWithoutIM(for key: String, in dict: JSONDictionary) -> String {
+        guard let temp = dict[key] as? JSONDictionary else { return "" }
         return temp["label"] as? String ?? ""
     }
     
