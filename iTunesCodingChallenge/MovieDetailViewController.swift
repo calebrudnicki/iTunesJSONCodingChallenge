@@ -28,9 +28,17 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        clipboardView.layer.cornerRadius = 10
+        clipboardView.layer.shadowColor = UIColor.black.cgColor
+        clipboardView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        clipboardView.layer.shadowOpacity = 1.0
+        clipboardView.layer.shadowRadius = 30
         movieTitleLabel.text = ""
         movieReleaseDateLabel.text = ""
         moviePriceLabel.text = ""
+        movieSummaryLabel.text = ""
+        movieRightsLabel.text = ""
+        clipboardView.alpha = 0
         movieImage.image = nil
     }
     

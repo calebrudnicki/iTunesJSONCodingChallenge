@@ -172,6 +172,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getPrice(), forKey: "price")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getRentalPrice(), forKey: "rentalPrice")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getSummary(), forKey: "summary")
+        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getRights(), forKey: "rights")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getImage(), forKey: "image")
         newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getLink(), forKey: "link")
         

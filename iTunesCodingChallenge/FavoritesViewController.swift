@@ -148,6 +148,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         performSegue(withIdentifier: "showFavoriteMovieDetails", sender: movies[indexPath.row])
+        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

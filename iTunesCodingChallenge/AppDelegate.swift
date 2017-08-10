@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (UserDefaults.standard.value(forKey: "name") as? String) == nil {
             //Show onboarding screen and sets the default user defaults
-            vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+            vc = storyboard.instantiateViewController(withIdentifier: "PageViewController")
             UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
         } else {
             //Show the main screen
