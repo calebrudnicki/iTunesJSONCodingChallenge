@@ -1,0 +1,15 @@
+PODS:
+  - CDAlertView (0.8.0)
+  - Onboard (2.3.1)
+
+DEPENDENCIES:
+  - CDAlertView
+  - Onboard
+
+SPEC CHECKSUMS:
+  CDAlertView: 018c5d8acc0b1b207a0c473a11c975b060f53f39
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+
+PODFILE CHECKSUM: 46b547297b72628a06ae83aa1801119fcdb39089
+
+COCOAPODS: 1.4.0

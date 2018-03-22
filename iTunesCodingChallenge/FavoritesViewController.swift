@@ -148,7 +148,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         performSegue(withIdentifier: "showFavoriteMovieDetails", sender: movies[indexPath.row])
-        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -168,6 +167,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             if identifier == "showFavoriteMovieDetails" {
                 let indexPath = tableView.indexPathForSelectedRow!
                 let movieDetailViewController = segue.destination as! MovieDetailViewController
+                print(self.movies[indexPath.row].name!)
+                print(self.movies[indexPath.row].releaseDate!)
+                print(self.movies[indexPath.row].price!)
+                print(self.movies[indexPath.row].rentalPrice!)
+                print(self.movies[indexPath.row].summary!)
+                print(self.movies[indexPath.row].rights!)
+                print(self.movies[indexPath.row].image!)
+                print(self.movies[indexPath.row].link!)
                 let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, price: self.movies[indexPath.row].price!, rentalPrice: self.movies[indexPath.row].rentalPrice!, summary: self.movies[indexPath.row].summary!, image: self.movies[indexPath.row].image!, rights: self.movies[indexPath.row].rights!, link: self.movies[indexPath.row].link!)
                 movieDetailViewController.movie = chosenMovie
             }

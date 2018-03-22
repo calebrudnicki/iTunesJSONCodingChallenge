@@ -18,7 +18,6 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieRightsLabel: UILabel!
     @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var clipboardView: UIView!
     
     var movie: Movie?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -28,17 +27,11 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        clipboardView.layer.cornerRadius = 10
-        clipboardView.layer.shadowColor = UIColor.black.cgColor
-        clipboardView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        clipboardView.layer.shadowOpacity = 1.0
-        clipboardView.layer.shadowRadius = 30
         movieTitleLabel.text = ""
         movieReleaseDateLabel.text = ""
         moviePriceLabel.text = ""
         movieSummaryLabel.text = ""
         movieRightsLabel.text = ""
-        clipboardView.alpha = 0
         movieImage.image = nil
     }
     
@@ -63,37 +56,7 @@ class MovieDetailViewController: UIViewController {
                 movieImage.image = #imageLiteral(resourceName: "NoImagePhoto")
             }
         }
-        clipboardView.alpha = 0
         print("Rights: " + (self.movie?.getRights())!)
-        
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(userIsPanned))
-        panRecognizer.minimumNumberOfTouches = 1
-        view.addGestureRecognizer(panRecognizer)
-    }
-    
-    //This function is called as the user is panning
-    func userIsPanned(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: view)
-        let velocity = recognizer.velocity(in: view)
-        //recognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
-        //movieImage.alpha = (600 - abs(translation.y)) / 600
-        //print("VELOCITY " + String(describing: velocity))
-        //print(String(describing: translation.y))
-        movieImage.alpha = (screenHeight - abs(translation.y)) / screenHeight
-        let reverseAlpha = 1 - movieImage.alpha
-//        movieTitleLabel.alpha = reverseAlpha
-//        moviePriceLabel.alpha = reverseAlpha
-//        movieReleaseDateLabel.alpha = reverseAlpha
-        clipboardView.alpha = reverseAlpha
-        /*if velocity.y > 0 {
-            //print("Moving down")
-            movieImage.alpha = (screenHeight - abs(translation.y)) / screenHeight
-            print(movieImage.alpha)
-        } else {
-            //print("Moving up")
-            movieImage.alpha = (screenHeight - abs(translation.y)) / screenHeight
-            print(movieImage.alpha)
-        }*/
     }
 
     override func didReceiveMemoryWarning() {

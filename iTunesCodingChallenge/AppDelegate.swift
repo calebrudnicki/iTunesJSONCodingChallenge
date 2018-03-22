@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,23 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in // Enable or disable features based on authorization.
         }
-        
-        //Play with storyboards for user onboarding
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var vc: UIViewController
-        
-        if (UserDefaults.standard.value(forKey: "name") as? String) == nil {
-            //Show onboarding screen and sets the default user defaults
-            vc = storyboard.instantiateViewController(withIdentifier: "PageViewController")
-            UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
+        let defaults = UserDefaults.standard
+        let userHasOnboarded =  defaults.bool(forKey: "userHasOnboarded")
+        if userHasOnboarded {
+            self.setupNormalRootViewController()
         } else {
-            //Show the main screen
-            vc = storyboard.instantiateInitialViewController()!
+            UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
+            self.window?.rootViewController = self.generateStandardOnboardingVC()
         }
-        
-        self.window?.rootViewController = vc
-        self.window?.makeKeyAndVisible()
         
         //Set the tint color of the entire app
         window?.tintColor = UIColor(red: 101/255, green: 153/255, blue: 185/255, alpha: 1.0)
@@ -70,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
+    //MARK: Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -89,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
                  * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
+                 * The device is out of space.x
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
@@ -99,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
+    //MARK: Core Data Saving support
 
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -113,6 +105,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    //MARK: Onboarding Functions
+    
+    func generateStandardOnboardingVC () -> OnboardingViewController {
+        
+        // Initialize onboarding view controller
+        var onboardingVC = OnboardingViewController()
+        
+        // Create slides
+        let firstPage = OnboardingContentViewController.content(withTitle: "Welcome To The Top 25 Movies!", body: "Your one-stop-shop for iTune's top rated movies right now.", image: nil, buttonText: nil, action: nil)
+        let secondPage = OnboardingContentViewController.content(withTitle: "Tap", body: "Select any movie you wish to see more info about it.", image: nil, buttonText: nil, action: nil)
+        let thirdPage = OnboardingContentViewController.content(withTitle: "Swipe", body: "Swipe left on a movie to add it to your list of favorites.", image: nil, buttonText: "👍", action: self.handleOnboardingCompletion)
+        
+        // Define onboarding view controller properties
+        onboardingVC = OnboardingViewController.onboard(withBackgroundImage: #imageLiteral(resourceName: "Clouds"), contents: [firstPage, secondPage, thirdPage])
+        onboardingVC.shouldFadeTransitions = true
+        onboardingVC.shouldMaskBackground = false
+        onboardingVC.shouldBlurBackground = false
+        onboardingVC.fadePageControlOnLastPage = true
+        onboardingVC.pageControl.pageIndicatorTintColor = UIColor.white
+        onboardingVC.pageControl.currentPageIndicatorTintColor = UIColor.white
+        onboardingVC.skipButton.setTitleColor(UIColor.white, for: .normal)
+        onboardingVC.allowSkipping = true
+        onboardingVC.fadeSkipButtonOnLastPage = true
+        
+        onboardingVC.skipHandler = {
+            self.skip()
+        }
+        
+        return onboardingVC
+        
+    }
+    
+    func handleOnboardingCompletion (){
+        self.setupNormalRootViewController()
+    }
+    
+    func setupNormalRootViewController (){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UIViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "userHasOnboarded")
+        
+    }
+    
+    func skip (){
+        self.setupNormalRootViewController()
     }
 
 }

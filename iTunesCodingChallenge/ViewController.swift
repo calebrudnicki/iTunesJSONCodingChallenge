@@ -12,6 +12,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import CDAlertView
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -239,15 +240,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
             self.tableView.isEditing = false
             if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
-                let alert = UIAlertController(title: "Sorry, " + self.movies[editActionsForRowAt.row].getName() + " was already added", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
+                CDAlertView(title: "Sorry", message: self.movies[editActionsForRowAt.row].getName() + " was already added", type: .warning).show()
             } else {
                 self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
-                let alert = UIAlertController(title: "Added " + self.movies[editActionsForRowAt.row].getName(), message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                CDAlertView(title: "Added!", message: self.movies[editActionsForRowAt.row].getName() + " was added to your favorites", type: .success).show()
             }
         }
         addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
@@ -285,6 +281,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //Schedule the notification
         let center = UNUserNotificationCenter.current()
         center.add(request)
+    }
+    
+    //MARK: Action Functions
+    
+    //This function lets the user toggle between purchase and rental price when the help icon is tapped
+    @IBAction func helpButtonTapped(_ sender: Any) {
+        let alert = CDAlertView(title: "Help", message: "What kind of price do you want to see?", type: .notification)
+        let segmentedController = UISegmentedControl(frame: alert.frame)
+        segmentedController.insertSegment(withTitle: "Purchase", at: 0, animated: false)
+        segmentedController.insertSegment(withTitle: "Rental", at: 1, animated: false)
+        
+        if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Int {
+            segmentedController.selectedSegmentIndex = priceDefault
+        }
+        
+        alert.customView = segmentedController
+        let dismissAction = CDAlertViewAction(title: "Dismiss", font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin), textColor: UIColor.red, backgroundColor: UIColor.white, handler: { (action: CDAlertViewAction) -> Bool in
+            if segmentedController.selectedSegmentIndex == 0 {
+                UserDefaults.standard.set(false, forKey: "isSeeingRentalPrice")
+            } else {
+                UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
+            }
+            self.tableView.reloadData()
+            return true
+        })
+        alert.add(action: dismissAction)
+        alert.show()
     }
     
 }

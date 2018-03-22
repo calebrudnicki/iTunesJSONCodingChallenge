@@ -1,0 +1,882 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0379DC51D0F913F322EE4E664F53A36B /* CDAlertView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EA7CE1422BCDE9096D30CECBDBEB92F /* CDAlertView.bundle */; };
+		0E62ACA3CA147C7F014A71F617A7E736 /* OnboardingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF45046EFE4359E33D35868CB148FF0D /* OnboardingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		177A46EA487255FEF53454F1E3DE2723 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87D2F038F6D5D109431B42FCF2D1ECC /* ImageHelper.swift */; };
+		4C807CC693F2B2D105C256F9509A09C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		7016FC730D5A3C58473E16749F2D5540 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		72D69A0AE72C9A9AE698366D5315C9FB /* Pods-iTunesCodingChallenge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4E4EC9AE9F08B20B0AE4287AEAD8F3 /* Pods-iTunesCodingChallenge-dummy.m */; };
+		785D8DA08BB47D25289C1ACED7F270EB /* CDAlertView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7BC7247295F6A37DCB7D0F714DBA53 /* CDAlertView-dummy.m */; };
+		807546B03FB6CDDAC49FF733067B632C /* Pods-iTunesCodingChallenge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 031249291297AAF69CA6EB8CBA7E9E37 /* Pods-iTunesCodingChallenge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85D793A244F6E144AC81BE59B147E1A2 /* CDAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371B1B8CDFF0FFF559FE36440C44EA6 /* CDAlertView.swift */; };
+		991F609C73269DC78E11180E3C3E1032 /* OnboardingContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84F069A46026EFF6A6A786467B6AD10 /* OnboardingContentViewController.m */; };
+		9FD7DDE53F9EF82FEC5515E6D42F7475 /* CDAlertHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EB2182DAC598C45EF0E0A09D98238A /* CDAlertHeaderView.swift */; };
+		A06B2ACA4E8D9B92B7B7D4B306D8808D /* Onboard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF73A872E29DB7936E5DC3CC01FE85A9 /* Onboard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A22F3F69ACD560E2593AC06EDCB81D2E /* OnboardingContentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 315EADCA8ACC34FC9A4C049A898EFC23 /* OnboardingContentViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2F1AE49B40FA19878D08BFB9AEEDBE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		B5B4B4360749E1D13CF2C52D04F56064 /* CDAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45CAEA7364E85827FAB76A32DABFEBF6 /* CDAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7D7C81AD022E37F39027243A314C132 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		C537A2C98FD1DF6D4B6C6C8958000891 /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C4F65F31AAE7FB517B15AD35FE6D34 /* OnboardingViewController.m */; };
+		DDA5FEC2649A4CC2E74661569A161B6F /* LayoutConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28BA21220ED6055B9EBCA08BC9321E /* LayoutConstraintsExtension.swift */; };
+		DFF8CB6CE450CED94E604B450A181155 /* Onboard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A06A19C6038A4278D4604DAF88F8E /* Onboard-dummy.m */; };
+		F408FDBFC38CCA098969881D1C681B36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9520FCF119F255B36CCEBD29BF46700 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5294B7C1FA465451891C04439BFF988F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F5682E0AC126B1910FC04BA8A16F382;
+			remoteInfo = Onboard;
+		};
+		9E022DE6025B80186394648B956C2EE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4BDF1191BBE4F429F08A241D8B53E2A;
+			remoteInfo = "CDAlertView-CDAlertView";
+		};
+		9FA0A70549BE9E5CD583ABC031A67EC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 369C26E0019831DFC30E7122499AB269;
+			remoteInfo = CDAlertView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CDAlertView.xcconfig; sourceTree = "<group>"; };
+		031249291297AAF69CA6EB8CBA7E9E37 /* Pods-iTunesCodingChallenge-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iTunesCodingChallenge-umbrella.h"; sourceTree = "<group>"; };
+		17C4F65F31AAE7FB517B15AD35FE6D34 /* OnboardingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OnboardingViewController.m; path = Source/OnboardingViewController.m; sourceTree = "<group>"; };
+		1B7BC7247295F6A37DCB7D0F714DBA53 /* CDAlertView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CDAlertView-dummy.m"; sourceTree = "<group>"; };
+		21158532204055360A7A327047ECC029 /* ResourceBundle-CDAlertView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CDAlertView-Info.plist"; sourceTree = "<group>"; };
+		2371B1B8CDFF0FFF559FE36440C44EA6 /* CDAlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CDAlertView.swift; path = CDAlertView/Classes/CDAlertView.swift; sourceTree = "<group>"; };
+		256A06A19C6038A4278D4604DAF88F8E /* Onboard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Onboard-dummy.m"; sourceTree = "<group>"; };
+		2AA34C437F782872BD80624BA1EB2991 /* Pods-iTunesCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		315EADCA8ACC34FC9A4C049A898EFC23 /* OnboardingContentViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OnboardingContentViewController.h; path = Source/OnboardingContentViewController.h; sourceTree = "<group>"; };
+		45CAEA7364E85827FAB76A32DABFEBF6 /* CDAlertView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDAlertView-umbrella.h"; sourceTree = "<group>"; };
+		5B2E45F3144AB3679E9635D98B7C342A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		609E5E2D9B51413F4442650FBECE4788 /* CDAlertView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CDAlertView-prefix.pch"; sourceTree = "<group>"; };
+		6A28BA21220ED6055B9EBCA08BC9321E /* LayoutConstraintsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintsExtension.swift; path = CDAlertView/Classes/LayoutConstraintsExtension.swift; sourceTree = "<group>"; };
+		700C6BFE65B6DC672CF139FAD5E8FEA4 /* Pods-iTunesCodingChallenge-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iTunesCodingChallenge-acknowledgements.markdown"; sourceTree = "<group>"; };
+		77101B709F829CB1B0EA43E7380B3282 /* Onboard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Onboard.modulemap; sourceTree = "<group>"; };
+		7EA7CE1422BCDE9096D30CECBDBEB92F /* CDAlertView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CDAlertView.bundle; path = "CDAlertView-CDAlertView.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8278EBB9BAD363393DF4E10330FCA7D3 /* Onboard.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Onboard.xcconfig; sourceTree = "<group>"; };
+		8B7FF2BF6F42799CA491971C607E704E /* CDAlertView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CDAlertView.modulemap; sourceTree = "<group>"; };
+		8F44ED157470D3283BC7BC4847D4F09A /* Onboard-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Onboard-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97C9F41596BAF8C22545827223766B27 /* Pods-iTunesCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iTunesCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		A2EB2182DAC598C45EF0E0A09D98238A /* CDAlertHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CDAlertHeaderView.swift; path = CDAlertView/Classes/CDAlertHeaderView.swift; sourceTree = "<group>"; };
+		A7CF3B8984A14CD8ECDAECD83FCD9D0C /* Onboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Onboard.framework; path = Onboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A892E5355344BC8C320150558F41BD26 /* Pods-iTunesCodingChallenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iTunesCodingChallenge.modulemap"; sourceTree = "<group>"; };
+		AB188D9E3AC7EAF19084B7AC3E61B401 /* Pods-iTunesCodingChallenge-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesCodingChallenge-frameworks.sh"; sourceTree = "<group>"; };
+		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B82269CB45B1E63DA094A5DD8D842245 /* Pods-iTunesCodingChallenge-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iTunesCodingChallenge-resources.sh"; sourceTree = "<group>"; };
+		BF45046EFE4359E33D35868CB148FF0D /* OnboardingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OnboardingViewController.h; path = Source/OnboardingViewController.h; sourceTree = "<group>"; };
+		C9520FCF119F255B36CCEBD29BF46700 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CDAlertView/Assets/Assets.xcassets; sourceTree = "<group>"; };
+		CB3E6232449E34924152CE3CA9FA511A /* Pods-iTunesCodingChallenge-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iTunesCodingChallenge-acknowledgements.plist"; sourceTree = "<group>"; };
+		D506AF0BAD502CFE41359BA94CB0985D /* CDAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CDAlertView.framework; path = CDAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84F069A46026EFF6A6A786467B6AD10 /* OnboardingContentViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OnboardingContentViewController.m; path = Source/OnboardingContentViewController.m; sourceTree = "<group>"; };
+		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DF73A872E29DB7936E5DC3CC01FE85A9 /* Onboard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Onboard-umbrella.h"; sourceTree = "<group>"; };
+		E21778CBCE46AA817D358B9BBB7E5762 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28F819645F58CEE053DABC291F29D17 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC4E4EC9AE9F08B20B0AE4287AEAD8F3 /* Pods-iTunesCodingChallenge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iTunesCodingChallenge-dummy.m"; sourceTree = "<group>"; };
+		F86374B697E7013ADC3EA0907313D96A /* Pods_iTunesCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iTunesCodingChallenge.framework; path = "Pods-iTunesCodingChallenge.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F87D2F038F6D5D109431B42FCF2D1ECC /* ImageHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageHelper.swift; path = CDAlertView/Classes/ImageHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5781823FCF13DFC0D691BC350571CB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7D7C81AD022E37F39027243A314C132 /* Foundation.framework in Frameworks */,
+				A2F1AE49B40FA19878D08BFB9AEEDBE9 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2D7A0FAD5252F09F8E7F94123D02B17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D86E3DD0D99EF4F1AD841F88AA708881 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7016FC730D5A3C58473E16749F2D5540 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDFF039E6CBBA9A9D2F4B18254593E56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C807CC693F2B2D105C256F9509A09C2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E936683F13293CA8E47589033381157 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E21778CBCE46AA817D358B9BBB7E5762 /* Info.plist */,
+				77101B709F829CB1B0EA43E7380B3282 /* Onboard.modulemap */,
+				8278EBB9BAD363393DF4E10330FCA7D3 /* Onboard.xcconfig */,
+				256A06A19C6038A4278D4604DAF88F8E /* Onboard-dummy.m */,
+				8F44ED157470D3283BC7BC4847D4F09A /* Onboard-prefix.pch */,
+				DF73A872E29DB7936E5DC3CC01FE85A9 /* Onboard-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Onboard";
+			sourceTree = "<group>";
+		};
+		28A0530A72CFE8EA5303FA9770706463 /* Pods-iTunesCodingChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				E28F819645F58CEE053DABC291F29D17 /* Info.plist */,
+				A892E5355344BC8C320150558F41BD26 /* Pods-iTunesCodingChallenge.modulemap */,
+				700C6BFE65B6DC672CF139FAD5E8FEA4 /* Pods-iTunesCodingChallenge-acknowledgements.markdown */,
+				CB3E6232449E34924152CE3CA9FA511A /* Pods-iTunesCodingChallenge-acknowledgements.plist */,
+				EC4E4EC9AE9F08B20B0AE4287AEAD8F3 /* Pods-iTunesCodingChallenge-dummy.m */,
+				AB188D9E3AC7EAF19084B7AC3E61B401 /* Pods-iTunesCodingChallenge-frameworks.sh */,
+				B82269CB45B1E63DA094A5DD8D842245 /* Pods-iTunesCodingChallenge-resources.sh */,
+				031249291297AAF69CA6EB8CBA7E9E37 /* Pods-iTunesCodingChallenge-umbrella.h */,
+				2AA34C437F782872BD80624BA1EB2991 /* Pods-iTunesCodingChallenge.debug.xcconfig */,
+				97C9F41596BAF8C22545827223766B27 /* Pods-iTunesCodingChallenge.release.xcconfig */,
+			);
+			name = "Pods-iTunesCodingChallenge";
+			path = "Target Support Files/Pods-iTunesCodingChallenge";
+			sourceTree = "<group>";
+		};
+		375B865A13D40BCF3EF5B1C283D92652 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF2BF6F42799CA491971C607E704E /* CDAlertView.modulemap */,
+				017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */,
+				1B7BC7247295F6A37DCB7D0F714DBA53 /* CDAlertView-dummy.m */,
+				609E5E2D9B51413F4442650FBECE4788 /* CDAlertView-prefix.pch */,
+				45CAEA7364E85827FAB76A32DABFEBF6 /* CDAlertView-umbrella.h */,
+				5B2E45F3144AB3679E9635D98B7C342A /* Info.plist */,
+				21158532204055360A7A327047ECC029 /* ResourceBundle-CDAlertView-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CDAlertView";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438B396F6B4147076630CAEFE34282C1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
+				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		48C2F1703C9E45584C344707F346453C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C9520FCF119F255B36CCEBD29BF46700 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		756CB8922B727A73F5AE5FDD12DE95B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EA7CE1422BCDE9096D30CECBDBEB92F /* CDAlertView.bundle */,
+				D506AF0BAD502CFE41359BA94CB0985D /* CDAlertView.framework */,
+				A7CF3B8984A14CD8ECDAECD83FCD9D0C /* Onboard.framework */,
+				F86374B697E7013ADC3EA0907313D96A /* Pods_iTunesCodingChallenge.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				F60EA89FCBCF38F741478826DFD1697A /* Pods */,
+				756CB8922B727A73F5AE5FDD12DE95B1 /* Products */,
+				D85231BB1C6A1D0D1063520A8DBDE713 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9DAC704C797E409B557DC5C9CF742D9B /* CDAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				A2EB2182DAC598C45EF0E0A09D98238A /* CDAlertHeaderView.swift */,
+				2371B1B8CDFF0FFF559FE36440C44EA6 /* CDAlertView.swift */,
+				F87D2F038F6D5D109431B42FCF2D1ECC /* ImageHelper.swift */,
+				6A28BA21220ED6055B9EBCA08BC9321E /* LayoutConstraintsExtension.swift */,
+				48C2F1703C9E45584C344707F346453C /* Resources */,
+				375B865A13D40BCF3EF5B1C283D92652 /* Support Files */,
+			);
+			name = CDAlertView;
+			path = CDAlertView;
+			sourceTree = "<group>";
+		};
+		D85231BB1C6A1D0D1063520A8DBDE713 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				28A0530A72CFE8EA5303FA9770706463 /* Pods-iTunesCodingChallenge */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F2E57A3F1823D55D7639472C5C4E4D14 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				315EADCA8ACC34FC9A4C049A898EFC23 /* OnboardingContentViewController.h */,
+				D84F069A46026EFF6A6A786467B6AD10 /* OnboardingContentViewController.m */,
+				BF45046EFE4359E33D35868CB148FF0D /* OnboardingViewController.h */,
+				17C4F65F31AAE7FB517B15AD35FE6D34 /* OnboardingViewController.m */,
+				0E936683F13293CA8E47589033381157 /* Support Files */,
+			);
+			name = Onboard;
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		F60EA89FCBCF38F741478826DFD1697A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DAC704C797E409B557DC5C9CF742D9B /* CDAlertView */,
+				F2E57A3F1823D55D7639472C5C4E4D14 /* Onboard */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1DC09B3474FCADD5ADF737E95EE9BE04 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5B4B4360749E1D13CF2C52D04F56064 /* CDAlertView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B123073E62572610DE71544F9F5CD60 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807546B03FB6CDDAC49FF733067B632C /* Pods-iTunesCodingChallenge-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D2CAA9034788DCF4317EB07F9FA209E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A06B2ACA4E8D9B92B7B7D4B306D8808D /* Onboard-umbrella.h in Headers */,
+				A22F3F69ACD560E2593AC06EDCB81D2E /* OnboardingContentViewController.h in Headers */,
+				0E62ACA3CA147C7F014A71F617A7E736 /* OnboardingViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		369C26E0019831DFC30E7122499AB269 /* CDAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F7EAFBA6323B60EAD537F74FB49C1C /* Build configuration list for PBXNativeTarget "CDAlertView" */;
+			buildPhases = (
+				E5620E1094B413A427B2891CFB4E97EA /* Sources */,
+				C5781823FCF13DFC0D691BC350571CB6 /* Frameworks */,
+				4A7B66480A451A9A0F45E5FFBB662155 /* Resources */,
+				1DC09B3474FCADD5ADF737E95EE9BE04 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF1460637310CBFB3BB7F13CEEDCA24E /* PBXTargetDependency */,
+			);
+			name = CDAlertView;
+			productName = CDAlertView;
+			productReference = D506AF0BAD502CFE41359BA94CB0985D /* CDAlertView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		37F7F09E0F7462D82CD43E2222C1E9EA /* Pods-iTunesCodingChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 175D0DB41D0C5481BA740E3ADB31378E /* Build configuration list for PBXNativeTarget "Pods-iTunesCodingChallenge" */;
+			buildPhases = (
+				EB49FF6A67120C2C19E1E8C7C0FFEBCB /* Sources */,
+				D86E3DD0D99EF4F1AD841F88AA708881 /* Frameworks */,
+				6B123073E62572610DE71544F9F5CD60 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B79B501E27159B05D9EEA001F892FF90 /* PBXTargetDependency */,
+				E9844C1C0215D8F897E9D43B40800058 /* PBXTargetDependency */,
+			);
+			name = "Pods-iTunesCodingChallenge";
+			productName = "Pods-iTunesCodingChallenge";
+			productReference = F86374B697E7013ADC3EA0907313D96A /* Pods_iTunesCodingChallenge.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F5682E0AC126B1910FC04BA8A16F382 /* Onboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 754A201AE627327E0428243B1D3DB195 /* Build configuration list for PBXNativeTarget "Onboard" */;
+			buildPhases = (
+				05612E990061283EEA0C7F6066B393DC /* Sources */,
+				EDFF039E6CBBA9A9D2F4B18254593E56 /* Frameworks */,
+				8D2CAA9034788DCF4317EB07F9FA209E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Onboard;
+			productName = Onboard;
+			productReference = A7CF3B8984A14CD8ECDAECD83FCD9D0C /* Onboard.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C4BDF1191BBE4F429F08A241D8B53E2A /* CDAlertView-CDAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD56C041D949064F5CA7899644728E35 /* Build configuration list for PBXNativeTarget "CDAlertView-CDAlertView" */;
+			buildPhases = (
+				A4DE70E8AF00CFBCA3AA8D712980DD0D /* Sources */,
+				D2D7A0FAD5252F09F8E7F94123D02B17 /* Frameworks */,
+				E4FB523B26F7FAEB936EB0B566954176 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CDAlertView-CDAlertView";
+			productName = "CDAlertView-CDAlertView";
+			productReference = 7EA7CE1422BCDE9096D30CECBDBEB92F /* CDAlertView.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 756CB8922B727A73F5AE5FDD12DE95B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				369C26E0019831DFC30E7122499AB269 /* CDAlertView */,
+				C4BDF1191BBE4F429F08A241D8B53E2A /* CDAlertView-CDAlertView */,
+				8F5682E0AC126B1910FC04BA8A16F382 /* Onboard */,
+				37F7F09E0F7462D82CD43E2222C1E9EA /* Pods-iTunesCodingChallenge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A7B66480A451A9A0F45E5FFBB662155 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0379DC51D0F913F322EE4E664F53A36B /* CDAlertView.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4FB523B26F7FAEB936EB0B566954176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F408FDBFC38CCA098969881D1C681B36 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05612E990061283EEA0C7F6066B393DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF8CB6CE450CED94E604B450A181155 /* Onboard-dummy.m in Sources */,
+				991F609C73269DC78E11180E3C3E1032 /* OnboardingContentViewController.m in Sources */,
+				C537A2C98FD1DF6D4B6C6C8958000891 /* OnboardingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4DE70E8AF00CFBCA3AA8D712980DD0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5620E1094B413A427B2891CFB4E97EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD7DDE53F9EF82FEC5515E6D42F7475 /* CDAlertHeaderView.swift in Sources */,
+				785D8DA08BB47D25289C1ACED7F270EB /* CDAlertView-dummy.m in Sources */,
+				85D793A244F6E144AC81BE59B147E1A2 /* CDAlertView.swift in Sources */,
+				177A46EA487255FEF53454F1E3DE2723 /* ImageHelper.swift in Sources */,
+				DDA5FEC2649A4CC2E74661569A161B6F /* LayoutConstraintsExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB49FF6A67120C2C19E1E8C7C0FFEBCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D69A0AE72C9A9AE698366D5315C9FB /* Pods-iTunesCodingChallenge-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B79B501E27159B05D9EEA001F892FF90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CDAlertView;
+			target = 369C26E0019831DFC30E7122499AB269 /* CDAlertView */;
+			targetProxy = 9FA0A70549BE9E5CD583ABC031A67EC3 /* PBXContainerItemProxy */;
+		};
+		BF1460637310CBFB3BB7F13CEEDCA24E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CDAlertView-CDAlertView";
+			target = C4BDF1191BBE4F429F08A241D8B53E2A /* CDAlertView-CDAlertView */;
+			targetProxy = 9E022DE6025B80186394648B956C2EE7 /* PBXContainerItemProxy */;
+		};
+		E9844C1C0215D8F897E9D43B40800058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Onboard;
+			target = 8F5682E0AC126B1910FC04BA8A16F382 /* Onboard */;
+			targetProxy = 5294B7C1FA465451891C04439BFF988F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26F954BA177A9A46FFFD4E23ED11D67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		740FF8CFF57BC397ED14E66260A1D88F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8278EBB9BAD363393DF4E10330FCA7D3 /* Onboard.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Onboard/Onboard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Onboard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Onboard/Onboard.modulemap";
+				PRODUCT_NAME = Onboard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F11CEA984D3183AB05CD5E594DBC813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CDAlertView/CDAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CDAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CDAlertView/CDAlertView.modulemap";
+				PRODUCT_NAME = CDAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A06E95EBBE232E4C034530EE641CEFD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8278EBB9BAD363393DF4E10330FCA7D3 /* Onboard.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Onboard/Onboard-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Onboard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Onboard/Onboard.modulemap";
+				PRODUCT_NAME = Onboard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0F9B8A4FFB0D9EAE56EA164C58F8D27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CDAlertView/CDAlertView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CDAlertView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CDAlertView/CDAlertView.modulemap";
+				PRODUCT_NAME = CDAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B74C32789EC276248C101BEF5A2A9242 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDAlertView";
+				INFOPLIST_FILE = "Target Support Files/CDAlertView/ResourceBundle-CDAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = CDAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		B7F062D4814DA121EA0202542E9F5EC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AA34C437F782872BD80624BA1EB2991 /* Pods-iTunesCodingChallenge.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesCodingChallenge/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesCodingChallenge;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E2BF6D6731C31DE69900B7B24E6F0445 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E9400CE6450EAD073BA9339ECD78FBE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017460E371B3779839FF268AC26A728E /* CDAlertView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CDAlertView";
+				INFOPLIST_FILE = "Target Support Files/CDAlertView/ResourceBundle-CDAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = CDAlertView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FB1702F199C7C68E7E7461C63FCAA81E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97C9F41596BAF8C22545827223766B27 /* Pods-iTunesCodingChallenge.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iTunesCodingChallenge/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_iTunesCodingChallenge;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		175D0DB41D0C5481BA740E3ADB31378E /* Build configuration list for PBXNativeTarget "Pods-iTunesCodingChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F062D4814DA121EA0202542E9F5EC6 /* Debug */,
+				FB1702F199C7C68E7E7461C63FCAA81E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2BF6D6731C31DE69900B7B24E6F0445 /* Debug */,
+				26F954BA177A9A46FFFD4E23ED11D67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		754A201AE627327E0428243B1D3DB195 /* Build configuration list for PBXNativeTarget "Onboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				740FF8CFF57BC397ED14E66260A1D88F /* Debug */,
+				A06E95EBBE232E4C034530EE641CEFD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F7EAFBA6323B60EAD537F74FB49C1C /* Build configuration list for PBXNativeTarget "CDAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F11CEA984D3183AB05CD5E594DBC813 /* Debug */,
+				A0F9B8A4FFB0D9EAE56EA164C58F8D27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD56C041D949064F5CA7899644728E35 /* Build configuration list for PBXNativeTarget "CDAlertView-CDAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9400CE6450EAD073BA9339ECD78FBE9 /* Debug */,
+				B74C32789EC276248C101BEF5A2A9242 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
