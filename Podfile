@@ -8,5 +8,7 @@ target 'iTunesCodingChallenge' do
   # Pods for iTunesCodingChallenge
     pod 'CDAlertView'
     pod 'Onboard'
+    pod 'Armchair'
+    pod 'SwiftyJSON'
 
 end

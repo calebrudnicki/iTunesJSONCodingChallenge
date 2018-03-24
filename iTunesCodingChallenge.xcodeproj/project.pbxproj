@@ -18,6 +18,7 @@
 		82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */; };
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
+		82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5A6A22065C96800D57249 /* APIHelper.swift */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		82B5A6A22065C96800D57249 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A84BFCB3F04B3156EAC28F6D /* Pods-iTunesCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,11 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
-				82820CB61E8472380083F75A /* Movie.swift */,
-				82298C721E803D8F00A5E544 /* ViewController.swift */,
-				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
-				82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */,
-				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
+				823EB2BF20656D0300850A44 /* Model */,
+				823EB2BE20656D0000850A44 /* View */,
+				823EB2BD20656CFD00850A44 /* Controller */,
 				82298C741E803D8F00A5E544 /* Main.storyboard */,
 				82298C7A1E803D8F00A5E544 /* Assets.xcassets */,
 				82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */,
@@ -100,6 +100,33 @@
 				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
 			);
 			path = iTunesCodingChallenge;
+			sourceTree = "<group>";
+		};
+		823EB2BD20656CFD00850A44 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				82B5A6A22065C96800D57249 /* APIHelper.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		823EB2BE20656D0000850A44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82298C721E803D8F00A5E544 /* ViewController.swift */,
+				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
+				82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */,
+				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		823EB2BF20656D0300850A44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82820CB61E8472380083F75A /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		82F5CFD01E96C02F00B3561C /* Frameworks */ = {
@@ -233,13 +260,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CDAlertView/CDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -257,6 +288,7 @@
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
 				82820CB71E8472380083F75A /* Movie.swift in Sources */,
+				82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */,
 				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
 				82298C731E803D8F00A5E544 /* ViewController.swift in Sources */,
 				82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */,

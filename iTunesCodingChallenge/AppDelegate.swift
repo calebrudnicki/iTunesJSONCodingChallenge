@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         //Create a center for push notifications
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in // Enable or disable features based on authorization.
@@ -28,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.setupNormalRootViewController()
         } else {
             UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
+            UserDefaults.standard.set(25, forKey: "numberOfMovies")
             self.window?.rootViewController = self.generateStandardOnboardingVC()
         }
         
@@ -36,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -117,13 +120,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create slides
         let firstPage = OnboardingContentViewController.content(withTitle: "Welcome To The Top 25 Movies!", body: "Your one-stop-shop for iTune's top rated movies right now.", image: nil, buttonText: nil, action: nil)
         let secondPage = OnboardingContentViewController.content(withTitle: "Tap", body: "Select any movie you wish to see more info about it.", image: nil, buttonText: nil, action: nil)
-        let thirdPage = OnboardingContentViewController.content(withTitle: "Swipe", body: "Swipe left on a movie to add it to your list of favorites.", image: nil, buttonText: "👍", action: self.handleOnboardingCompletion)
+        let thirdPage = OnboardingContentViewController.content(withTitle: "Swipe", body: "Swipe left on a movie to add it to your list of favorites.", image: nil, buttonText: "Get started 👍", action: self.handleOnboardingCompletion)
         
         // Define onboarding view controller properties
         onboardingVC = OnboardingViewController.onboard(withBackgroundImage: #imageLiteral(resourceName: "Clouds"), contents: [firstPage, secondPage, thirdPage])
         onboardingVC.shouldFadeTransitions = true
         onboardingVC.shouldMaskBackground = false
-        onboardingVC.shouldBlurBackground = false
+        onboardingVC.shouldBlurBackground = true
         onboardingVC.fadePageControlOnLastPage = true
         onboardingVC.pageControl.pageIndicatorTintColor = UIColor.white
         onboardingVC.pageControl.currentPageIndicatorTintColor = UIColor.white

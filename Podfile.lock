@@ -1,15 +1,21 @@
 PODS:
+  - Armchair (0.3.5)
   - CDAlertView (0.8.0)
   - Onboard (2.3.1)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - Armchair
   - CDAlertView
   - Onboard
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
   CDAlertView: 018c5d8acc0b1b207a0c473a11c975b060f53f39
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 46b547297b72628a06ae83aa1801119fcdb39089
+PODFILE CHECKSUM: c88d6f64736ad9b2b860f255ed48e95d2d07c2ab
 
 COCOAPODS: 1.4.0
