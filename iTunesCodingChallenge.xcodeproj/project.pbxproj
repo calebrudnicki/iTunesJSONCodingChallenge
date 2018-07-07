@@ -15,7 +15,6 @@
 		82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */; };
 		82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7A1E803D8F00A5E544 /* Assets.xcassets */; };
 		82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */; };
-		82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */; };
 		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
 		82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5A6A22065C96800D57249 /* APIHelper.swift */; };
@@ -47,7 +46,6 @@
 		82298C7A1E803D8F00A5E544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82298C7D1E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82298C7F1E803D8F00A5E544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		82B5A6A22065C96800D57249 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			children = (
 				82298C721E803D8F00A5E544 /* ViewController.swift */,
 				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
-				82298C8B1E804BFD00A5E544 /* MovieDetailViewController.swift */,
 				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
 			);
 			path = View;
@@ -284,7 +281,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82298C8C1E804BFD00A5E544 /* MovieDetailViewController.swift in Sources */,
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
 				82820CB71E8472380083F75A /* Movie.swift in Sources */,

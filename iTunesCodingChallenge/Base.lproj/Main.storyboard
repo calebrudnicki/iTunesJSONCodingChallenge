@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-44-Z9m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-44-Z9m">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
-        <array key="HelveticaNeueExtras.ttc">
-            <string>HelveticaNeue-CondensedBlack</string>
-            <string>HelveticaNeue-CondensedBold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-LightItalic</string>
-            <string>HelveticaNeue-Thin</string>
-            <string>HelveticaNeue-UltraLight</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Favorites-->
         <scene sceneID="caF-be-G3r">
@@ -138,12 +122,11 @@
                         <outlet property="editButton" destination="ubS-Uu-eJQ" id="Dc7-kr-Sdh"/>
                         <outlet property="noFavoritesLabel" destination="1On-mZ-8Yw" id="AuB-r2-Qh2"/>
                         <outlet property="tableView" destination="cNI-3Z-ORi" id="L1s-dI-00m"/>
-                        <segue destination="aM2-80-ZmS" kind="show" identifier="showFavoriteMovieDetails" id="WTT-jD-WF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFR-Yd-vbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-244"/>
+            <point key="canvasLocation" x="1826" y="90"/>
         </scene>
         <!--Top 25-->
         <scene sceneID="tne-QT-ifu">
@@ -177,13 +160,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-Ru-Wnj">
-                                                    <rect key="frame" x="61" y="36" width="338" height="21"/>
+                                                    <rect key="frame" x="61" y="36" width="333" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wH9-dA-eOm">
-                                                    <rect key="frame" x="61" y="65" width="338" height="21"/>
+                                                    <rect key="frame" x="61" y="65" width="333" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -198,7 +181,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0S7-DK-r1E">
-                                                    <rect key="frame" x="61" y="8" width="338" height="21"/>
+                                                    <rect key="frame" x="61" y="8" width="333" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -283,121 +266,11 @@
                         <outlet property="activityIndicatorLabel" destination="DRn-ji-vAt" id="IyZ-e1-C7c"/>
                         <outlet property="currentDateLabel" destination="Ovg-eF-b6k" id="t37-LH-EoM"/>
                         <outlet property="tableView" destination="aeN-kG-dTe" id="9G3-jY-Da4"/>
-                        <segue destination="aM2-80-ZmS" kind="show" identifier="showMovieDetails" id="XSJ-IK-EcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="91.304347826086968"/>
-        </scene>
-        <!--Movie Detail View Controller-->
-        <scene sceneID="wCv-Ev-zVi">
-            <objects>
-                <viewController id="aM2-80-ZmS" customClass="MovieDetailViewController" customModule="iTunesCodingChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jDw-WW-A3Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="h8q-Zn-sdx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D1E-dZ-6gI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QBh-II-old">
-                                <rect key="frame" x="189" y="350" width="37" height="37"/>
-                                <color key="color" red="0.39607843139999999" green="0.59810411929999996" blue="0.72737401719999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-wJ-CCP">
-                                <rect key="frame" x="21" y="75" width="372" height="35.666666666666657"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zRF-hV-Ivf">
-                                <rect key="frame" x="10" y="166.66666666666663" width="394" height="294"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-Ke-YdF">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="294"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RM9-ds-Oxv">
-                                        <rect key="frame" x="202" y="0.0" width="192" height="294"/>
-                                        <string key="text">Donec ut elementum dui, in venenatis tortor. Etiam at fringilla elit, non convallis justo. Phasellus non felis eu erat vehicula dignissim vitae ullamcorper dolor. Etiam molestie tellus vel libero sollicitudin, ut dapibus felis pretium. Vivamus pulvinar lectus ac tortor imperdiet, a fringilla sem iaculis. Nulla sed elit nec nibh porttitor tempus. Morbi imperdiet posuere tellus non mattis. Aenean ut commodo dolor, nec ultricies </string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rF3-cM-XR0">
-                                <rect key="frame" x="62" y="526.33333333333337" width="290" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXr-la-lvu">
-                                <rect key="frame" x="62" y="555.33333333333337" width="290" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RzF-ht-q3h">
-                                <rect key="frame" x="10" y="640.33333333333337" width="394" height="16.666666666666629"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-zg-cFi">
-                                <rect key="frame" x="0.0" y="661" width="414" height="75"/>
-                                <color key="backgroundColor" red="0.396078431372549" green="0.59810411930084229" blue="0.72737401723861694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="See this Movie on iTunes">
-                                    <color key="titleColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="linkButtonTapped:" destination="aM2-80-ZmS" eventType="touchUpInside" id="7ZK-A9-EqQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="rF3-cM-XR0" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="1J7-Sk-HSS"/>
-                            <constraint firstItem="QBh-II-old" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="39b-UM-xGs"/>
-                            <constraint firstItem="ymr-wJ-CCP" firstAttribute="top" secondItem="jDw-WW-A3Y" secondAttribute="bottom" multiplier="1.15" constant="1" id="8Az-V4-sbh"/>
-                            <constraint firstItem="zRF-hV-Ivf" firstAttribute="top" secondItem="ymr-wJ-CCP" secondAttribute="bottom" multiplier="1.5" constant="1" id="AS8-5T-OSa"/>
-                            <constraint firstItem="ymr-wJ-CCP" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.9" id="AxC-lM-MHF"/>
-                            <constraint firstItem="J7X-zg-cFi" firstAttribute="height" secondItem="D1E-dZ-6gI" secondAttribute="height" multiplier="0.1" constant="1" id="BfT-wk-sxn"/>
-                            <constraint firstItem="J7X-zg-cFi" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="Kkg-6K-30v"/>
-                            <constraint firstItem="zRF-hV-Ivf" firstAttribute="height" secondItem="D1E-dZ-6gI" secondAttribute="height" multiplier="0.4" id="MqN-RC-39Q"/>
-                            <constraint firstItem="zRF-hV-Ivf" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="ORe-cw-8kQ"/>
-                            <constraint firstItem="h8q-Zn-sdx" firstAttribute="top" secondItem="J7X-zg-cFi" secondAttribute="bottom" id="Syj-WB-jzr"/>
-                            <constraint firstItem="QBh-II-old" firstAttribute="centerY" secondItem="D1E-dZ-6gI" secondAttribute="centerY" id="Vsc-WJ-yYx"/>
-                            <constraint firstItem="GXr-la-lvu" firstAttribute="top" secondItem="rF3-cM-XR0" secondAttribute="bottom" multiplier="1.005" constant="1" id="d1N-Xy-djo"/>
-                            <constraint firstItem="GXr-la-lvu" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.7" id="ddR-gr-pPh"/>
-                            <constraint firstItem="rF3-cM-XR0" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.7" id="djK-lE-LCb"/>
-                            <constraint firstItem="rF3-cM-XR0" firstAttribute="top" relation="lessThanOrEqual" secondItem="zRF-hV-Ivf" secondAttribute="bottom" multiplier="1.2" constant="1" id="e0e-9R-Rct"/>
-                            <constraint firstItem="RzF-ht-q3h" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="e1L-yL-NTZ"/>
-                            <constraint firstItem="ymr-wJ-CCP" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="jSE-yd-bug"/>
-                            <constraint firstItem="RzF-ht-q3h" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.95" id="lXu-4b-giu"/>
-                            <constraint firstItem="zRF-hV-Ivf" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" multiplier="0.95" id="pJl-CM-qui"/>
-                            <constraint firstItem="GXr-la-lvu" firstAttribute="centerX" secondItem="D1E-dZ-6gI" secondAttribute="centerX" id="tCL-JM-NAb"/>
-                            <constraint firstItem="J7X-zg-cFi" firstAttribute="top" secondItem="RzF-ht-q3h" secondAttribute="bottom" multiplier="1.005" constant="1" id="yNh-Dp-lhZ"/>
-                            <constraint firstItem="J7X-zg-cFi" firstAttribute="width" secondItem="D1E-dZ-6gI" secondAttribute="width" id="zZs-as-fCw"/>
-                            <constraint firstItem="RzF-ht-q3h" firstAttribute="top" secondItem="GXr-la-lvu" secondAttribute="bottom" multiplier="1.1" constant="1" id="zbt-6P-a5q"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="QBh-II-old" id="eel-Ld-YLv"/>
-                        <outlet property="linkButton" destination="J7X-zg-cFi" id="DoK-jj-Ha8"/>
-                        <outlet property="movieImage" destination="BFF-Ke-YdF" id="TvS-8e-Qb7"/>
-                        <outlet property="moviePriceLabel" destination="GXr-la-lvu" id="qXC-X2-cAh"/>
-                        <outlet property="movieReleaseDateLabel" destination="rF3-cM-XR0" id="egU-np-yGW"/>
-                        <outlet property="movieRightsLabel" destination="RzF-ht-q3h" id="7r9-VT-t10"/>
-                        <outlet property="movieSummaryLabel" destination="RM9-ds-Oxv" id="9LJ-8Z-UCt"/>
-                        <outlet property="movieTitleLabel" destination="ymr-wJ-CCP" id="lCa-xf-o8T"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6iJ-4M-KPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1848" y="452"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YCC-05-W6P">
@@ -420,9 +293,5 @@
     <resources>
         <image name="FavoritesIcon" width="23" height="22"/>
         <image name="HelpIcon" width="22" height="22"/>
-        <image name="LaunchScreenIcon" width="520" height="806"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WTT-jD-WF4"/>
-    </inferredMetricsTieBreakers>
 </document>

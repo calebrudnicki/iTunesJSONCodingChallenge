@@ -214,20 +214,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]
     }
-
-    //MARK: Segue Functions
-    
-    //This overriden functions is enacted right before the segue is performed so it can feed the movie object thru the segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "showMovieDetails" {
-                let indexPath = tableView.indexPathForSelectedRow!
-                let movie = self.movies[indexPath.row]
-                let movieDetailViewController = segue.destination as! MovieDetailViewController
-                movieDetailViewController.movie = movie
-            }
-        }
-    }
     
     //MARK: Notification Functions
     

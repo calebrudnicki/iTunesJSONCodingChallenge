@@ -26,6 +26,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.dataSource = self
         self.tableView.isEditing = false
         self.tableView.allowsSelectionDuringEditing = true
+        self.tableView.tableFooterView = UIView()
         self.retrieveFromCoreData()
         self.decideToShowNoFavoritesLabel()
     }
@@ -145,9 +146,26 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    //This delegate function allows the user to swipe on the cell and watch the movie's trailer
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let watchTrailer = UITableViewRowAction(style: .default, title: "Watch Trailer", handler: { action, index in
+            self.tableView.isEditing = false
+            let url = URL(string: (self.movies[editActionsForRowAt.row].link)!)!
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.open(url)
+            }
+        })
+        watchTrailer.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
+        if self.tableView.isEditing {
+            return nil
+        }
+        return [watchTrailer]
+    }
+    
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         performSegue(withIdentifier: "showFavoriteMovieDetails", sender: movies[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -159,21 +177,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.movies.insert(movieToBeMoved, at: destinationIndexPath.row)
         self.tableView.reloadData()
     }
-    
-    //MARK: Segue Functions
-    
-    //This overriden functions is enacted right before the segue is performed so it can feed the movie object thru the segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "showFavoriteMovieDetails" {
-                let indexPath = tableView.indexPathForSelectedRow!
-                let movieDetailViewController = segue.destination as! MovieDetailViewController
-                let chosenMovie = Movie(name: self.movies[indexPath.row].name!, releaseDate: self.movies[indexPath.row].releaseDate!, purchasePrice: self.movies[indexPath.row].price!, rentalPrice: self.movies[indexPath.row].rentalPrice!, summary: self.movies[indexPath.row].summary!, image: self.movies[indexPath.row].image!, rights: self.movies[indexPath.row].rights!, link: self.movies[indexPath.row].link!)
-                movieDetailViewController.movie = chosenMovie
-            }
-        }
-    }
-    
+
     //MARK: Action Functions
     
     //This function toggles between editing the table view and not editing the table view when the edit button is pressed
@@ -185,6 +189,5 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             editButton.title = "Edit"
         }
     }
-    
 
 }
