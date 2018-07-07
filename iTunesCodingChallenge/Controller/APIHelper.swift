@@ -32,7 +32,7 @@ class APIHelper {
             
             releaseDate = self.outputFormatter.string(from: ISO8601DateFormatter().date(from: releaseDate as! String)!)
             
-            let newMovie = Movie(name: name as! String, releaseDate: releaseDate as! String, purchasePrice: purchasePrice as! String, rentalPrice: rentalPrice as! String, summary: summary as! String, image: image as! String, rights: rights as! String, link: link as! String)
+            let newMovie = Movie(name: name as! String, releaseDate: releaseDate as! String, purchasePrice: purchasePrice as! String, rentalPrice: rentalPrice as! String, summary: summary as! String, image: image as! String, rights: rights as! String, link: link as! String, rank: 0)
             movieList.append(newMovie)
         }
         

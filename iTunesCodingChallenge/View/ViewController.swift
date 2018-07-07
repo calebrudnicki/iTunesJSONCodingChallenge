@@ -10,8 +10,8 @@
 //
 
 import UIKit
-import CoreData
 import CDAlertView
+import FirebaseAuth
 import FirebaseDatabase
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -22,8 +22,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var activityIndicatorLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var userEmail: String?
     let apiHelper = APIHelper()
     var movies = [Movie]()
+    var firebaseMovies: [Movie] = []
     var refreshControl = UIRefreshControl()
     var dbRef: DatabaseReference!
     
@@ -39,10 +41,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.refreshControl.addTarget(self, action: #selector(ViewController.refreshData), for: UIControlEvents.valueChanged)
         self.tableView?.addSubview(refreshControl)
         dbRef = Database.database().reference().child("movies")
+        startObservingDatabase()
+    }
+    
+    func startObservingDatabase() {
+        dbRef!.observe(.value, with: { (snapshot: DataSnapshot) in
+            var newMovies = [Movie]()
+            for movie in snapshot.children {
+                let movieObject = Movie(snapshot: movie as! DataSnapshot)
+                newMovies.append(movieObject)
+            }
+            self.firebaseMovies = newMovies
+            self.tableView.reloadData()
+        })
     }
     
     //This function reloads the table view every time the view appears
     override func viewDidAppear(_ animated: Bool) {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.userEmail = user.email!
+                print("Welcome \(String(describing: user.email!))")
+            } else {
+                print("You need to sign up or login first")
+            }
+        }
         tableView.reloadData()
     }
     
@@ -98,7 +121,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         
-        self.currentDateLabel.text = "Last updated on " + String(describing: components.month!) + "/" + String(describing: components.day!) + "/" + String(describing: components.year!) + " at " + String(describing: components.hour!) + ":" + String(describing: components.minute!) + ":" + String(describing: components.second!)
+        self.currentDateLabel.text = "Last updated on " + String(describing: components.month!) + "/" + String(describing: components.day!) + "/" + String(describing: components.year!) + " at " + String(describing: components.hour!) + ":" + String(describing: components.minute!) + ":" + String(describing: components.second!) + " for \(String(describing: userEmail ?? "test"))"
     }
     
     //This functions displays an alert controller to allow the user to try to reconnect to the API if they couldn't originally
@@ -114,49 +137,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         alert.show()
     }
     
-    //MARK: CoreData Functions
-    
-    //This function adds a movie to CoreData as one of the users favorite movies and send them a notification
-    func addMovieToFavorites(_ indexPath: NSIndexPath) {
-        let context = appDelegate.persistentContainer.viewContext
-        let newFavoriteMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getName(), forKey: "name")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getReleaseDate(), forKey: "releaseDate")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getPurchasePrice(), forKey: "price")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getRentalPrice(), forKey: "rentalPrice")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getSummary(), forKey: "summary")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getRights(), forKey: "rights")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getImage(), forKey: "image")
-        newFavoriteMovie.setValue(self.movies[(indexPath as NSIndexPath).row].getLink(), forKey: "link")
-        
-        do {
-            try context.save()
-            print("Saved " + self.movies[(indexPath as NSIndexPath).row].getName() + " to CoreData")
-        } catch let error as NSError {
-            fatalError("Failed to add movie to favorites: \(error)")
-        }
-        self.tableView.setEditing(false, animated: true)
-    }
-    
-    //This function checks to see if a movie is already in a user's favorites in CoreData
-    func foundDuplicateInCoreData(movieName: String) -> Bool {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Movies")
-        request.returnsObjectsAsFaults = false
-        do {
-            let results = try context.fetch(request)
-                for result in results as! [NSManagedObject] {
-                    if (result as! Movies).name == movieName {
-                        return true
-                    }
+    func foundDuplicateInFirebase(movieName: String) -> Bool {
+        for movie in firebaseMovies {
+            if movie.name == movieName {
+                return true
             }
-        } catch let error as NSError {
-            fatalError("Failed to retrieve movie: \(error)")
         }
         return false
     }
-    
     //MARK: TableView Delegate Functions
     
     //This delegate function sets the amount of rows in the table view to 25
@@ -168,13 +156,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = self.movies[indexPath.row].getName()
-        cell.releaseDateLabel.text = self.movies[indexPath.row].getReleaseDate()
+        cell.titleLabel.text = self.movies[indexPath.row].name!
+        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate!
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
-            if priceDefault == true && self.movies[indexPath.row].getRentalPrice() != "" {
-                cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].getRentalPrice()
+            if priceDefault == true && self.movies[indexPath.row].rentalPrice! != "" {
+                cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
             } else {
-                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].getPurchasePrice()
+                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].purchasePrice!
             }
         }
         return cell
@@ -182,7 +170,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This delegate function recognizes the cell that was selected and then performs a segue
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].getName())
+        performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].name!)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -191,16 +179,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
             self.tableView.isEditing = false
             var alert = CDAlertView()
-            if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
-                alert = CDAlertView(title: "Sorry", message: self.movies[editActionsForRowAt.row].getName() + " was already added", type: .warning)
+            if self.foundDuplicateInFirebase(movieName: self.movies[editActionsForRowAt.row].name!) {
+                alert = CDAlertView(title: "Sorry", message: self.movies[editActionsForRowAt.row].name! + " was already added", type: .warning)
             } else {
-                //CR: Adding movie to Firebase
-                let firebaseMovie = FirebaseMovie(name: self.movies[editActionsForRowAt.row].getName(), releaseDate: self.movies[editActionsForRowAt.row].getReleaseDate(), purchasePrice: self.movies[editActionsForRowAt.row].getPurchasePrice(), rentalPrice: self.movies[editActionsForRowAt.row].getRentalPrice(), summary: self.movies[editActionsForRowAt.row].getSummary(), image: self.movies[editActionsForRowAt.row].getImage(), rights: self.movies[editActionsForRowAt.row].getRights(), link: self.movies[editActionsForRowAt.row].getLink())
-                let movieRef = self.dbRef.child((self.movies[editActionsForRowAt.row].getName().lowercased()))
+                let firebaseMovie = Movie(name: self.movies[editActionsForRowAt.row].name!,
+                                          releaseDate: self.movies[editActionsForRowAt.row].releaseDate!,
+                                          purchasePrice: self.movies[editActionsForRowAt.row].purchasePrice!,
+                                          rentalPrice: self.movies[editActionsForRowAt.row].rentalPrice!,
+                                          summary: self.movies[editActionsForRowAt.row].summary!,
+                                          image: self.movies[editActionsForRowAt.row].image!,
+                                          rights: self.movies[editActionsForRowAt.row].rights!,
+                                          link: self.movies[editActionsForRowAt.row].link!,
+                                          rank: self.firebaseMovies.count + 1)
+                let movieRef = self.dbRef.child((self.movies[editActionsForRowAt.row].name!.lowercased()))
                 movieRef.setValue(firebaseMovie.toAnyObject())
-                //
-                self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
-                alert = CDAlertView(title: "Added!", message: self.movies[editActionsForRowAt.row].getName() + " had been added to your favorites", type: .success)
+                alert = CDAlertView(title: "Added!", message: self.movies[editActionsForRowAt.row].name! + " had been added to your favorites", type: .success)
             }
             let dismissAction = CDAlertViewAction(title: "Dismiss", font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin), textColor: UIColor.red, backgroundColor: UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1), handler: nil)
             alert.add(action: dismissAction)
@@ -254,6 +247,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         alert.customView = stackView
+        let userAction = CDAlertViewAction(title: "User", font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin), textColor: UIColor.green, backgroundColor: UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1), handler: { (action: CDAlertViewAction) -> Bool in
+            let userAlert = UIAlertController(title: "Login / Signup", message: "Enter email and password", preferredStyle: .alert)
+            userAlert.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Email"
+            })
+            userAlert.addTextField(configurationHandler: { (textField) in
+                textField.isSecureTextEntry = true
+                textField.placeholder = "Password"
+            })
+            userAlert.addAction(UIAlertAction(title: "Sign in", style: .default, handler: { (action) in
+                let emailTextField = userAlert.textFields?.first!
+                let passwordTextField = userAlert.textFields?.last!
+                Auth.auth().signIn(withEmail: (emailTextField?.text!)!, password: (passwordTextField?.text!)!, completion: { (user, error) in
+                    if error != nil {
+                        print(error?.localizedDescription ?? "")
+                    }
+                })
+            }))
+            userAlert.addAction(UIAlertAction(title: "Sign up", style: .default, handler: { (action) in
+                let emailTextField = userAlert.textFields?.first!
+                let passwordTextField = userAlert.textFields?.last!
+                Auth.auth().createUser(withEmail: (emailTextField?.text!)!, password: (passwordTextField?.text!)!, completion: { (user, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    }
+                })
+            }))
+            self.present(userAlert, animated: true, completion: nil)
+            return true
+        })
+        
         let dismissAction = CDAlertViewAction(title: "Dismiss", font: UIFont.systemFont(ofSize: 18, weight: UIFontWeightThin), textColor: UIColor.red, backgroundColor: UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1), handler: { (action: CDAlertViewAction) -> Bool in
             
             if priceSegmentedController.selectedSegmentIndex == 0 {
@@ -284,6 +308,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.reloadData()
             return true
         })
+        alert.add(action: userAction)
         alert.add(action: dismissAction)
         alert.show()
     }

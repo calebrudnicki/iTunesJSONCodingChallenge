@@ -15,12 +15,11 @@
 		82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */; };
 		82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7A1E803D8F00A5E544 /* Assets.xcassets */; };
 		82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */; };
-		82820CB71E8472380083F75A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB61E8472380083F75A /* Movie.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
 		82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5A6A22065C96800D57249 /* APIHelper.swift */; };
 		82DD1C0E20F10E3000820EA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82DD1C0D20F10E2F00820EA7 /* GoogleService-Info.plist */; };
 		82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C0F20F121BD00820EA7 /* AppUser.swift */; };
-		82DD1C1220F1227400820EA7 /* FirebaseMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C1120F1227400820EA7 /* FirebaseMovie.swift */; };
+		82DD1C1220F1227400820EA7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C1120F1227400820EA7 /* Movie.swift */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,12 +48,12 @@
 		82298C7A1E803D8F00A5E544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82298C7D1E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82298C7F1E803D8F00A5E544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82820CB61E8472380083F75A /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		82B5A6A22065C96800D57249 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		82DD1C0D20F10E2F00820EA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82DD1C0F20F121BD00820EA7 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		82DD1C1120F1227400820EA7 /* FirebaseMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMovie.swift; sourceTree = "<group>"; };
+		82DD1C1120F1227400820EA7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesCodingChallenge.entitlements; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A84BFCB3F04B3156EAC28F6D /* Pods-iTunesCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +92,7 @@
 		82298C6F1E803D8F00A5E544 /* iTunesCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */,
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
 				823EB2BF20656D0300850A44 /* Model */,
 				823EB2BE20656D0000850A44 /* View */,
@@ -128,9 +128,8 @@
 		823EB2BF20656D0300850A44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82820CB61E8472380083F75A /* Movie.swift */,
 				82DD1C0F20F121BD00820EA7 /* AppUser.swift */,
-				82DD1C1120F1227400820EA7 /* FirebaseMovie.swift */,
+				82DD1C1120F1227400820EA7 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +189,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 92DETN2MKQ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -256,6 +263,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -267,6 +275,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -285,8 +294,7 @@
 			files = (
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
-				82820CB71E8472380083F75A /* Movie.swift in Sources */,
-				82DD1C1220F1227400820EA7 /* FirebaseMovie.swift in Sources */,
+				82DD1C1220F1227400820EA7 /* Movie.swift in Sources */,
 				82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */,
 				82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */,
 				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
@@ -413,6 +421,7 @@
 			baseConfigurationReference = 09853BA1391C2F4967086734 /* Pods-iTunesCodingChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iTunesCodingChallenge/iTunesCodingChallenge.entitlements;
 				DEVELOPMENT_TEAM = 92DETN2MKQ;
 				INFOPLIST_FILE = iTunesCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,6 +436,7 @@
 			baseConfigurationReference = A84BFCB3F04B3156EAC28F6D /* Pods-iTunesCodingChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iTunesCodingChallenge/iTunesCodingChallenge.entitlements;
 				DEVELOPMENT_TEAM = 92DETN2MKQ;
 				INFOPLIST_FILE = iTunesCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

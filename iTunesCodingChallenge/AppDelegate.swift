@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Onboard
 import Firebase
-//import FirebaseAuth
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,13 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        Auth.auth().signIn(withEmail: "cmr@sharklasers.com", password: "1234567890", completion: { (user, error) in
-            if error == nil {
-                print(user?.user.email ?? "")
-            } else {
-                print(error?.localizedDescription ?? "")
-            }
-        })
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSettings)
         
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -99,6 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("MessageID: \(userInfo["gcm_message_id"]!)")
+        print(userInfo)
+    }
 
     //MARK: Core Data Saving support
 

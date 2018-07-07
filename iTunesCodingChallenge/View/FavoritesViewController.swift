@@ -17,7 +17,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var noFavoritesLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var movies: [FirebaseMovie] = [] //Used to be [Movie]
+    var movies: [Movie] = []
     var dbRef: DatabaseReference!
     
     //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
@@ -35,22 +35,26 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func startObservingDatabase() {
         dbRef!.observe(.value, with: { (snapshot: DataSnapshot) in
-            var newMovies = [FirebaseMovie]()
+            var newMovies = [Movie]()
             for movie in snapshot.children {
-                let movieObject = FirebaseMovie(snapshot: movie as! DataSnapshot)
+                let movieObject = Movie(snapshot: movie as! DataSnapshot)
                 newMovies.append(movieObject)
             }
             self.movies = newMovies
+            self.movies.sort(by: { $0.rank! < $1.rank! })
             self.tableView.reloadData()
-            print(newMovies.count)
         })
     }
     
     //This function calls reorderCoreData() when the back button is tapped
     override func willMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
-//            self.reorderCoreData()
+            self.reorderMovies()
         }
+    }
+    
+    func reorderMovies() {
+        print("reorder")
     }
 
     //MARK: TableView Delegate Functions
@@ -103,12 +107,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             return nil
         }
         return [watchTrailer]
-    }
-    
-    //This delegate function recognizes the cell that was selected and then performs a segue
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showFavoriteMovieDetails", sender: movies[indexPath.row])
-        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
