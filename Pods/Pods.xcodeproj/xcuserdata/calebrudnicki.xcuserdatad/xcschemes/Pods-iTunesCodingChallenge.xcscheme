@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A28F8C7DB6150F7973E03715F269193A"
+               BlueprintIdentifier = "AA07E5C1E8555938A65A908064E28967"
                BuildableName = "Pods_iTunesCodingChallenge.framework"
                BlueprintName = "Pods-iTunesCodingChallenge"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A28F8C7DB6150F7973E03715F269193A"
+            BlueprintIdentifier = "AA07E5C1E8555938A65A908064E28967"
             BuildableName = "Pods_iTunesCodingChallenge.framework"
             BlueprintName = "Pods-iTunesCodingChallenge"
             ReferencedContainer = "container:Pods.xcodeproj">

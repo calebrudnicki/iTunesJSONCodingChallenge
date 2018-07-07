@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 import Onboard
+import Firebase
+//import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,12 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
+        Auth.auth().signIn(withEmail: "cmr@sharklasers.com", password: "1234567890", completion: { (user, error) in
+            if error == nil {
+                print(user?.user.email ?? "")
+            } else {
+                print(error?.localizedDescription ?? "")
+            }
+        })
+        
         UIApplication.shared.statusBarStyle = .lightContent
         
-        //Create a center for push notifications
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in // Enable or disable features based on authorization.
-        }
         let defaults = UserDefaults.standard
         let userHasOnboarded =  defaults.bool(forKey: "userHasOnboarded")
         if userHasOnboarded {

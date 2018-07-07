@@ -10,5 +10,8 @@ target 'iTunesCodingChallenge' do
     pod 'Onboard'
     pod 'Armchair'
     pod 'SwiftyJSON'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
 
 end

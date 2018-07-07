@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,7 +17,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var noFavoritesLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var movies: [Movies] = []
+    var movies: [FirebaseMovie] = [] //Used to be [Movie]
+    var dbRef: DatabaseReference!
     
     //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
     override func viewDidLoad() {
@@ -27,86 +29,27 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.isEditing = false
         self.tableView.allowsSelectionDuringEditing = true
         self.tableView.tableFooterView = UIView()
-        self.retrieveFromCoreData()
-        self.decideToShowNoFavoritesLabel()
+        dbRef = Database.database().reference().child("movies")
+        startObservingDatabase() //CR: This allows the tableview to listen to changes in the database and automatically update
+    }
+    
+    func startObservingDatabase() {
+        dbRef!.observe(.value, with: { (snapshot: DataSnapshot) in
+            var newMovies = [FirebaseMovie]()
+            for movie in snapshot.children {
+                let movieObject = FirebaseMovie(snapshot: movie as! DataSnapshot)
+                newMovies.append(movieObject)
+            }
+            self.movies = newMovies
+            self.tableView.reloadData()
+            print(newMovies.count)
+        })
     }
     
     //This function calls reorderCoreData() when the back button is tapped
     override func willMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
-            self.reorderCoreData()
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    //This function decides whether or not the user has any favorite movies and displays the page accordingly
-    func decideToShowNoFavoritesLabel() {
-        if movies.count > 0 {
-            self.noFavoritesLabel.isHidden = true
-            self.tableView.isHidden = false
-        } else {
-            self.noFavoritesLabel.isHidden = false
-            self.tableView.isHidden = true
-        }
-    }
-    
-    //MARK: CoreData Functions
-    
-    //This function retrieves the movies from CoreData
-    func retrieveFromCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Movies")
-        request.returnsObjectsAsFaults = false
-        do {
-            let results = try context.fetch(request)
-            if results.count > 0 {
-                for result in results as! [NSManagedObject] {
-                    self.movies.append(result as! Movies)
-                }
-            }
-        } catch let error as NSError {
-            fatalError("Failed to retrieve movie: \(error)")
-        }
-    }
-    
-    //This function deletes a specific movie from CoreData
-    func deleteFromCoreData(_ indexPath: IndexPath) {
-        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        let context = appDelegate.persistentContainer.viewContext
-        let movieToBeDeleted = movies[(indexPath as NSIndexPath).row]
-        context.delete(movieToBeDeleted)
-        do {
-            try context.save()
-        } catch let error as NSError {
-            fatalError("Failed to fetch movie: \(error)")
-        }
-    }
-    
-    //This function reorders the values in core data to account for the user's top list of movies
-    func reorderCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        if movies.count > 1 {
-            for i in 0...movies.count - 1 {
-                let currentMovie = NSEntityDescription.insertNewObject(forEntityName: "Movies", into: context)
-                currentMovie.setValue(self.movies[i].name, forKey: "name")
-                currentMovie.setValue(self.movies[i].releaseDate, forKey: "releaseDate")
-                currentMovie.setValue(self.movies[i].price, forKey: "price")
-                currentMovie.setValue(self.movies[i].image, forKey: "image")
-                currentMovie.setValue(self.movies[i].link, forKey: "link")
-                context.delete(self.movies[i])
-                
-                do {
-                    try context.save()
-                } catch let error as NSError {
-                    fatalError("Failed to reorder movies: \(error)")
-                }
-            }
-            print("REORDERED") 
+//            self.reorderCoreData()
         }
     }
 
@@ -121,13 +64,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = self.movies[indexPath.row].name
-        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate
+        cell.titleLabel.text = self.movies[indexPath.row].name!
+        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate!
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
             if priceDefault == true && self.movies[indexPath.row].rentalPrice != nil {
                 cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
             } else {
-                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].price!
+                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].purchasePrice!
             }
         }
         return cell
@@ -136,13 +79,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This delegate function allows the user to delete a cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.deleteFromCoreData(indexPath)
+            let movie = movies[indexPath.row]
+            movie.itemRef?.removeValue()
             self.movies.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             self.tableView.reloadData()
-            if movies.count < 1 {
-                decideToShowNoFavoritesLabel()
-            }
         }
     }
     

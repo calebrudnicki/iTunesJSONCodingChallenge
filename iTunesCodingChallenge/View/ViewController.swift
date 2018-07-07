@@ -11,8 +11,8 @@
 
 import UIKit
 import CoreData
-import UserNotifications
 import CDAlertView
+import FirebaseDatabase
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -25,10 +25,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let apiHelper = APIHelper()
     var movies = [Movie]()
     var refreshControl = UIRefreshControl()
+    var dbRef: DatabaseReference!
     
     //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate(), fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sparkJSONCall()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -36,16 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.title = "Top \(String(describing: UserDefaults.standard.object(forKey: "numberOfMovies")!))"
         self.refreshControl.addTarget(self, action: #selector(ViewController.refreshData), for: UIControlEvents.valueChanged)
         self.tableView?.addSubview(refreshControl)
-        self.sparkJSONCall()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    //This function removes itself as an observer when the view disappears
-    override func viewDidDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self)
+        dbRef = Database.database().reference().child("movies")
     }
     
     //This function reloads the table view every time the view appears
@@ -139,7 +132,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do {
             try context.save()
             print("Saved " + self.movies[(indexPath as NSIndexPath).row].getName() + " to CoreData")
-            self.sendUserNotification(movieName: self.movies[(indexPath as NSIndexPath).row].getName(), movieImage: self.movies[(indexPath as NSIndexPath).row].getImage())
         } catch let error as NSError {
             fatalError("Failed to add movie to favorites: \(error)")
         }
@@ -202,6 +194,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if self.foundDuplicateInCoreData(movieName: self.movies[editActionsForRowAt.row].getName()) {
                 alert = CDAlertView(title: "Sorry", message: self.movies[editActionsForRowAt.row].getName() + " was already added", type: .warning)
             } else {
+                //CR: Adding movie to Firebase
+                let firebaseMovie = FirebaseMovie(name: self.movies[editActionsForRowAt.row].getName(), releaseDate: self.movies[editActionsForRowAt.row].getReleaseDate(), purchasePrice: self.movies[editActionsForRowAt.row].getPurchasePrice(), rentalPrice: self.movies[editActionsForRowAt.row].getRentalPrice(), summary: self.movies[editActionsForRowAt.row].getSummary(), image: self.movies[editActionsForRowAt.row].getImage(), rights: self.movies[editActionsForRowAt.row].getRights(), link: self.movies[editActionsForRowAt.row].getLink())
+                let movieRef = self.dbRef.child((self.movies[editActionsForRowAt.row].getName().lowercased()))
+                movieRef.setValue(firebaseMovie.toAnyObject())
+                //
                 self.addMovieToFavorites(editActionsForRowAt as NSIndexPath)
                 alert = CDAlertView(title: "Added!", message: self.movies[editActionsForRowAt.row].getName() + " had been added to your favorites", type: .success)
             }
@@ -213,25 +210,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]
-    }
-    
-    //MARK: Notification Functions
-    
-    //Sends the user a notification about a movie that was added to their favorites list
-    func sendUserNotification(movieName: String, movieImage: String) {
-        let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: "You added " + movieName, arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Check it out on your favorites list!", arguments: nil)
-        content.sound = UNNotificationSound.default()
-        content.badge = 1
-        
-        //Deliver the notification
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 7200, repeats: false)
-        let request = UNNotificationRequest.init(identifier: "TwoHour", content: content, trigger: trigger)
-        
-        //Schedule the notification
-        let center = UNUserNotificationCenter.current()
-        center.add(request)
     }
     
     //MARK: Action Functions

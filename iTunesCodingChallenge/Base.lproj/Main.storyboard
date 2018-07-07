@@ -89,24 +89,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="CpZ-0u-hfW"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no favorite movies 😢 Swipe left on a movie to add it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1On-mZ-8Yw">
-                                <rect key="frame" x="20" y="360" width="374" height="17"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cNI-3Z-ORi" firstAttribute="leading" secondItem="ayZ-e9-WrN" secondAttribute="leading" id="2OY-pe-YIq"/>
-                            <constraint firstItem="1On-mZ-8Yw" firstAttribute="centerY" secondItem="ayZ-e9-WrN" secondAttribute="centerY" id="Bwq-Xk-n4i"/>
                             <constraint firstItem="cNI-3Z-ORi" firstAttribute="centerY" secondItem="ayZ-e9-WrN" secondAttribute="centerY" id="I70-Ry-CLR"/>
                             <constraint firstItem="cNI-3Z-ORi" firstAttribute="height" secondItem="ayZ-e9-WrN" secondAttribute="height" id="b8z-T5-1rU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1On-mZ-8Yw" secondAttribute="trailing" id="leQ-Vd-TtA"/>
                             <constraint firstItem="cNI-3Z-ORi" firstAttribute="width" secondItem="ayZ-e9-WrN" secondAttribute="width" id="li0-Lk-Fla"/>
                             <constraint firstAttribute="trailing" secondItem="cNI-3Z-ORi" secondAttribute="trailing" id="uie-uF-ecv"/>
-                            <constraint firstItem="1On-mZ-8Yw" firstAttribute="centerX" secondItem="ayZ-e9-WrN" secondAttribute="centerX" id="vXQ-08-R24"/>
-                            <constraint firstItem="1On-mZ-8Yw" firstAttribute="leading" secondItem="ayZ-e9-WrN" secondAttribute="leadingMargin" id="yO4-qA-nwi"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -120,7 +110,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="ubS-Uu-eJQ" id="Dc7-kr-Sdh"/>
-                        <outlet property="noFavoritesLabel" destination="1On-mZ-8Yw" id="AuB-r2-Qh2"/>
                         <outlet property="tableView" destination="cNI-3Z-ORi" id="L1s-dI-00m"/>
                     </connections>
                 </viewController>
