@@ -23,14 +23,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.isEditing = false
-        self.tableView.allowsSelectionDuringEditing = true
-        self.tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.tintColor = UIColor.white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isEditing = false
+        tableView.allowsSelectionDuringEditing = true
+        tableView.tableFooterView = UIView()
         dbRef = Database.database().reference().child("movies")
-        startObservingDatabase() //CR: This allows the tableview to listen to changes in the database and automatically update
+        startObservingDatabase()
     }
     
     func startObservingDatabase() {
@@ -55,21 +55,32 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func reorderMovies() {
         print("reorder")
+        var rank = 1
+        for movie in movies {
+//            (movie as Movie).rank = rank
+            let movieRef = self.dbRef.child((movie.name!.lowercased()))
+            let rankRef = movieRef.child("rank")
+            rankRef.setValue(rank)
+//            movieRef.setValue(rank, forKey: "rank")
+//            movieRef.setValue(movie.rank = rank)
+            rank += 1
+        }
+        print(movies)
     }
 
     //MARK: TableView Delegate Functions
     
     //This delegate function sets the amount of rows in the table view to the total amount of favorited movies
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count
+        return movies.count
     }
     
     //This delegate function sets data in each cell to the appropriate movie rank, name, date, and price
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = self.movies[indexPath.row].name!
-        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate!
+        cell.titleLabel.text = movies[indexPath.row].name!
+        cell.releaseDateLabel.text = movies[indexPath.row].releaseDate!
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
             if priceDefault == true && self.movies[indexPath.row].rentalPrice != nil {
                 cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
@@ -102,8 +113,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                 UIApplication.shared.open(url)
             }
         })
-        watchTrailer.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
-        if self.tableView.isEditing {
+        watchTrailer.backgroundColor = UIColor(red: 57/255, green: 172/255, blue: 160/255, alpha: 1)
+        if tableView.isEditing {
             return nil
         }
         return [watchTrailer]
@@ -112,16 +123,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movieToBeMoved = movies[sourceIndexPath.row]
-        self.movies.remove(at: sourceIndexPath.row)
-        self.movies.insert(movieToBeMoved, at: destinationIndexPath.row)
-        self.tableView.reloadData()
+        movies.remove(at: sourceIndexPath.row)
+        movies.insert(movieToBeMoved, at: destinationIndexPath.row)
+        tableView.reloadData()
     }
 
     //MARK: Action Functions
     
     //This function toggles between editing the table view and not editing the table view when the edit button is pressed
     @IBAction func editButtonTapped(_ sender: Any) {
-        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
+        tableView.setEditing(!self.tableView.isEditing, animated: true)
         if editButton.title == "Edit" {
             editButton.title = "Done"
         } else {

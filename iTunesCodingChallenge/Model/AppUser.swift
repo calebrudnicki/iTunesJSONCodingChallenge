@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 
 class AppUser {
+    
     let uid: String
     let email: String
     
@@ -26,4 +27,5 @@ class AppUser {
         self.uid = uid
         self.email = email
     }
+    
 }

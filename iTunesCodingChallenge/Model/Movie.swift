@@ -19,7 +19,7 @@ class Movie {
     let image: String?
     let rights: String?
     let link: String?
-    let rank: Int?
+    var rank: Int?
     let key: String!
     let itemRef: DatabaseReference?
     
@@ -97,7 +97,15 @@ class Movie {
     }
     
     func toAnyObject() -> AnyObject {
-        return ["name": name, "releaseDate": releaseDate, "purchasePrice": purchasePrice, "rentalPrice": rentalPrice, "summary": summary, "image": image, "rights": rights, "link": link, "rank": rank] as AnyObject
+        return ["name": name,
+                "releaseDate": releaseDate,
+                "purchasePrice": purchasePrice,
+                "rentalPrice": rentalPrice,
+                "summary": summary,
+                "image": image,
+                "rights": rights,
+                "link": link,
+                "rank": rank] as AnyObject
     }
     
 }

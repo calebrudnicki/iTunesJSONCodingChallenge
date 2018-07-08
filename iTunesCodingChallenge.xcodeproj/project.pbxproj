@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		757E97D4503E99E5AFA990F3 /* Pods_iTunesCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418249F40D9423A3EBB714F7 /* Pods_iTunesCodingChallenge.framework */; };
-		822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */; };
+		822945301E8067E300117FAE /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229452F1E8067E300117FAE /* MovieTableViewCell.swift */; };
 		82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C701E803D8F00A5E544 /* AppDelegate.swift */; };
-		82298C731E803D8F00A5E544 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C721E803D8F00A5E544 /* ViewController.swift */; };
+		82298C731E803D8F00A5E544 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C721E803D8F00A5E544 /* MainViewController.swift */; };
 		82298C761E803D8F00A5E544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C741E803D8F00A5E544 /* Main.storyboard */; };
 		82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */; };
 		82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7A1E803D8F00A5E544 /* Assets.xcassets */; };
 		82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
 		82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5A6A22065C96800D57249 /* APIHelper.swift */; };
-		82DD1C0E20F10E3000820EA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82DD1C0D20F10E2F00820EA7 /* GoogleService-Info.plist */; };
 		82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C0F20F121BD00820EA7 /* AppUser.swift */; };
 		82DD1C1220F1227400820EA7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C1120F1227400820EA7 /* Movie.swift */; };
+		82EA603920F2846B00E9EFF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,10 +39,10 @@
 /* Begin PBXFileReference section */
 		09853BA1391C2F4967086734 /* Pods-iTunesCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		418249F40D9423A3EBB714F7 /* Pods_iTunesCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesCodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		8229452F1E8067E300117FAE /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		82298C6D1E803D8F00A5E544 /* iTunesCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82298C701E803D8F00A5E544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82298C721E803D8F00A5E544 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		82298C721E803D8F00A5E544 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		82298C751E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82298C781E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesCodingChallenge.xcdatamodel; sourceTree = "<group>"; };
 		82298C7A1E803D8F00A5E544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,10 +50,10 @@
 		82298C7F1E803D8F00A5E544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		82B5A6A22065C96800D57249 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		82DD1C0D20F10E2F00820EA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82DD1C0F20F121BD00820EA7 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		82DD1C1120F1227400820EA7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesCodingChallenge.entitlements; sourceTree = "<group>"; };
+		82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A84BFCB3F04B3156EAC28F6D /* Pods-iTunesCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,16 +93,12 @@
 			isa = PBXGroup;
 			children = (
 				82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */,
-				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
+				82298C7F1E803D8F00A5E544 /* Info.plist */,
+				82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */,
+				82EA603620F2829D00E9EFF8 /* Support */,
 				823EB2BF20656D0300850A44 /* Model */,
 				823EB2BE20656D0000850A44 /* View */,
 				823EB2BD20656CFD00850A44 /* Controller */,
-				82298C741E803D8F00A5E544 /* Main.storyboard */,
-				82298C7A1E803D8F00A5E544 /* Assets.xcassets */,
-				82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */,
-				82298C7F1E803D8F00A5E544 /* Info.plist */,
-				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
-				82DD1C0D20F10E2F00820EA7 /* GoogleService-Info.plist */,
 			);
 			path = iTunesCodingChallenge;
 			sourceTree = "<group>";
@@ -110,6 +106,8 @@
 		823EB2BD20656CFD00850A44 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				82298C721E803D8F00A5E544 /* MainViewController.swift */,
+				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
 				82B5A6A22065C96800D57249 /* APIHelper.swift */,
 			);
 			path = Controller;
@@ -118,9 +116,7 @@
 		823EB2BE20656D0000850A44 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				82298C721E803D8F00A5E544 /* ViewController.swift */,
-				8229452F1E8067E300117FAE /* ViewControllerTableViewCell.swift */,
-				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
+				8229452F1E8067E300117FAE /* MovieTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +128,18 @@
 				82DD1C1120F1227400820EA7 /* Movie.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		82EA603620F2829D00E9EFF8 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
+				82298C741E803D8F00A5E544 /* Main.storyboard */,
+				82298C7A1E803D8F00A5E544 /* Assets.xcassets */,
+				82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */,
+				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		82F5CFD01E96C02F00B3561C /* Frameworks */ = {
@@ -224,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */,
-				82DD1C0E20F10E3000820EA7 /* GoogleService-Info.plist in Resources */,
+				82EA603920F2846B00E9EFF8 /* GoogleService-Info.plist in Resources */,
 				82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */,
 				82298C761E803D8F00A5E544 /* Main.storyboard in Resources */,
 			);
@@ -297,8 +305,8 @@
 				82DD1C1220F1227400820EA7 /* Movie.swift in Sources */,
 				82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */,
 				82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */,
-				822945301E8067E300117FAE /* ViewControllerTableViewCell.swift in Sources */,
-				82298C731E803D8F00A5E544 /* ViewController.swift in Sources */,
+				822945301E8067E300117FAE /* MovieTableViewCell.swift in Sources */,
+				82298C731E803D8F00A5E544 /* MainViewController.swift in Sources */,
 				82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

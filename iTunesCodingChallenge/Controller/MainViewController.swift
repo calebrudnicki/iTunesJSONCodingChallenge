@@ -14,7 +14,7 @@ import CDAlertView
 import FirebaseAuth
 import FirebaseDatabase
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
@@ -32,14 +32,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //This function sets up the table view, activity indicator, current date label, and calls setCurrentDate(), fetchJSON()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sparkJSONCall()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.currentDateLabel.text = ""
-        self.title = "Top \(String(describing: UserDefaults.standard.object(forKey: "numberOfMovies")!))"
-        self.refreshControl.addTarget(self, action: #selector(ViewController.refreshData), for: UIControlEvents.valueChanged)
-        self.tableView?.addSubview(refreshControl)
+        sparkJSONCall()
+        tableView.delegate = self
+        tableView.dataSource = self
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        currentDateLabel.text = ""
+        title = "Top \(String(describing: UserDefaults.standard.object(forKey: "numberOfMovies")!))"
+        refreshControl.addTarget(self, action: #selector(MainViewController.refreshData), for: UIControlEvents.valueChanged)
+        tableView?.addSubview(refreshControl)
         dbRef = Database.database().reference().child("movies")
         startObservingDatabase()
     }
@@ -108,10 +108,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This function handles the refreshing of the data from the API
     func refreshData() {
-        self.movies.removeAll()
-        self.sparkJSONCall()
-        if self.refreshControl.isRefreshing {
-            self.refreshControl.endRefreshing()
+        movies.removeAll()
+        sparkJSONCall()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
         }
     }
     
@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         
-        self.currentDateLabel.text = "Last updated on " + String(describing: components.month!) + "/" + String(describing: components.day!) + "/" + String(describing: components.year!) + " at " + String(describing: components.hour!) + ":" + String(describing: components.minute!) + ":" + String(describing: components.second!) + " for \(String(describing: userEmail ?? "test"))"
+        currentDateLabel.text = "Last updated on " + String(describing: components.month!) + "/" + String(describing: components.day!) + "/" + String(describing: components.year!) + " at " + String(describing: components.hour!) + ":" + String(describing: components.minute!) + ":" + String(describing: components.second!) + " for \(String(describing: userEmail ?? "test"))"
     }
     
     //This functions displays an alert controller to allow the user to try to reconnect to the API if they couldn't originally
@@ -149,15 +149,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //This delegate function sets the amount of rows in the table view to 25
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count
+        return movies.count
     }
     
     //This delegate functions sets data in each cell to the appropriate movie rank, name, date, and price
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
         cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = self.movies[indexPath.row].name!
-        cell.releaseDateLabel.text = self.movies[indexPath.row].releaseDate!
+        cell.titleLabel.text = movies[indexPath.row].name!
+        cell.releaseDateLabel.text = movies[indexPath.row].releaseDate!
         if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
             if priceDefault == true && self.movies[indexPath.row].rentalPrice! != "" {
                 cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
@@ -168,16 +168,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    //This delegate function recognizes the cell that was selected and then performs a segue
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showMovieDetails", sender: self.movies[indexPath.row].name!)
-        self.tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     //This delegate function allows the user to slide over an a cell to add it to favorites if it isn't already added to favorites
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let addToFavorites = UITableViewRowAction(style: .default, title: "Add Movie") { action, index in
-            self.tableView.isEditing = false
+            tableView.isEditing = false
             var alert = CDAlertView()
             if self.foundDuplicateInFirebase(movieName: self.movies[editActionsForRowAt.row].name!) {
                 alert = CDAlertView(title: "Sorry", message: self.movies[editActionsForRowAt.row].name! + " was already added", type: .warning)
@@ -201,7 +195,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             alert.hasRoundCorners = true
             alert.show()
         }
-        addToFavorites.backgroundColor = UIColor(colorLiteralRed: 57/255, green: 172/255, blue: 160/255, alpha: 1)
+        addToFavorites.backgroundColor = UIColor(red: 57/255, green: 172/255, blue: 160/255, alpha: 1)
         return [addToFavorites]
     }
     
