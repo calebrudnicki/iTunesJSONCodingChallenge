@@ -97,15 +97,15 @@ class Movie {
     }
     
     func toAnyObject() -> AnyObject {
-        return ["name": name,
-                "releaseDate": releaseDate,
-                "purchasePrice": purchasePrice,
-                "rentalPrice": rentalPrice,
-                "summary": summary,
-                "image": image,
-                "rights": rights,
-                "link": link,
-                "rank": rank] as AnyObject
+        return ["name": name!,
+                "releaseDate": releaseDate!,
+                "purchasePrice": purchasePrice!,
+                "rentalPrice": rentalPrice!,
+                "summary": summary!,
+                "image": image!,
+                "rights": rights!,
+                "link": link!,
+                "rank": rank!] as AnyObject
     }
     
 }

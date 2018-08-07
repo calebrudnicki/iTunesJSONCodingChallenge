@@ -10,16 +10,19 @@
 		757E97D4503E99E5AFA990F3 /* Pods_iTunesCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418249F40D9423A3EBB714F7 /* Pods_iTunesCodingChallenge.framework */; };
 		822945301E8067E300117FAE /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229452F1E8067E300117FAE /* MovieTableViewCell.swift */; };
 		82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C701E803D8F00A5E544 /* AppDelegate.swift */; };
-		82298C731E803D8F00A5E544 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C721E803D8F00A5E544 /* MainViewController.swift */; };
+		82298C731E803D8F00A5E544 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82298C721E803D8F00A5E544 /* MainTableViewController.swift */; };
 		82298C761E803D8F00A5E544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C741E803D8F00A5E544 /* Main.storyboard */; };
 		82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */; };
 		82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7A1E803D8F00A5E544 /* Assets.xcassets */; };
 		82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */; };
+		823F6284210BEFA30035F236 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F6283210BEFA30035F236 /* Constant.swift */; };
+		823F6286210C01F60035F236 /* PopMenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F6285210C01F60035F236 /* PopMenuHelper.swift */; };
+		823F6288210C14090035F236 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823F6287210C14090035F236 /* Labels.swift */; };
 		82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82820CB81E8478950083F75A /* FavoritesViewController.swift */; };
+		82A772552104FD2E0024BAA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A772542104FD2E0024BAA1 /* GoogleService-Info.plist */; };
 		82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B5A6A22065C96800D57249 /* APIHelper.swift */; };
 		82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C0F20F121BD00820EA7 /* AppUser.swift */; };
 		82DD1C1220F1227400820EA7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD1C1120F1227400820EA7 /* Movie.swift */; };
-		82EA603920F2846B00E9EFF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */; };
 		82F5CFD21E96C03000B3561C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F5CFD11E96C03000B3561C /* UserNotifications.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,18 +45,21 @@
 		8229452F1E8067E300117FAE /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		82298C6D1E803D8F00A5E544 /* iTunesCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82298C701E803D8F00A5E544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82298C721E803D8F00A5E544 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		82298C721E803D8F00A5E544 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		82298C751E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82298C781E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesCodingChallenge.xcdatamodel; sourceTree = "<group>"; };
 		82298C7A1E803D8F00A5E544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82298C7D1E803D8F00A5E544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82298C7F1E803D8F00A5E544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		823F6283210BEFA30035F236 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		823F6285210C01F60035F236 /* PopMenuHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopMenuHelper.swift; sourceTree = "<group>"; };
+		823F6287210C14090035F236 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		82820CB81E8478950083F75A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		82A772542104FD2E0024BAA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82B5A6A22065C96800D57249 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		82DD1C0F20F121BD00820EA7 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		82DD1C1120F1227400820EA7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesCodingChallenge.entitlements; sourceTree = "<group>"; };
-		82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		82F5CFD11E96C03000B3561C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A84BFCB3F04B3156EAC28F6D /* Pods-iTunesCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesCodingChallenge/Pods-iTunesCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +100,7 @@
 			children = (
 				82DD1C1320F1683F00820EA7 /* iTunesCodingChallenge.entitlements */,
 				82298C7F1E803D8F00A5E544 /* Info.plist */,
-				82EA603820F2846B00E9EFF8 /* GoogleService-Info.plist */,
+				82A772542104FD2E0024BAA1 /* GoogleService-Info.plist */,
 				82EA603620F2829D00E9EFF8 /* Support */,
 				823EB2BF20656D0300850A44 /* Model */,
 				823EB2BE20656D0000850A44 /* View */,
@@ -106,7 +112,7 @@
 		823EB2BD20656CFD00850A44 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				82298C721E803D8F00A5E544 /* MainViewController.swift */,
+				82298C721E803D8F00A5E544 /* MainTableViewController.swift */,
 				82820CB81E8478950083F75A /* FavoritesViewController.swift */,
 				82B5A6A22065C96800D57249 /* APIHelper.swift */,
 			);
@@ -134,10 +140,13 @@
 			isa = PBXGroup;
 			children = (
 				82298C701E803D8F00A5E544 /* AppDelegate.swift */,
+				823F6283210BEFA30035F236 /* Constant.swift */,
 				82298C741E803D8F00A5E544 /* Main.storyboard */,
-				82298C7A1E803D8F00A5E544 /* Assets.xcassets */,
 				82298C7C1E803D8F00A5E544 /* LaunchScreen.storyboard */,
+				82298C7A1E803D8F00A5E544 /* Assets.xcassets */,
 				82298C771E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld */,
+				823F6285210C01F60035F236 /* PopMenuHelper.swift */,
+				823F6287210C14090035F236 /* Labels.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -232,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82298C7E1E803D8F00A5E544 /* LaunchScreen.storyboard in Resources */,
-				82EA603920F2846B00E9EFF8 /* GoogleService-Info.plist in Resources */,
+				82A772552104FD2E0024BAA1 /* GoogleService-Info.plist in Resources */,
 				82298C7B1E803D8F00A5E544 /* Assets.xcassets in Resources */,
 				82298C761E803D8F00A5E544 /* Main.storyboard in Resources */,
 			);
@@ -270,8 +279,11 @@
 				"${BUILT_PRODUCTS_DIR}/CDAlertView/CDAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NewPopMenu/PopMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -282,8 +294,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -302,12 +317,15 @@
 			files = (
 				82298C791E803D8F00A5E544 /* iTunesCodingChallenge.xcdatamodeld in Sources */,
 				82820CB91E8478950083F75A /* FavoritesViewController.swift in Sources */,
+				823F6284210BEFA30035F236 /* Constant.swift in Sources */,
 				82DD1C1220F1227400820EA7 /* Movie.swift in Sources */,
+				823F6286210C01F60035F236 /* PopMenuHelper.swift in Sources */,
 				82B5A6A32065C96800D57249 /* APIHelper.swift in Sources */,
 				82DD1C1020F121BD00820EA7 /* AppUser.swift in Sources */,
 				822945301E8067E300117FAE /* MovieTableViewCell.swift in Sources */,
-				82298C731E803D8F00A5E544 /* MainViewController.swift in Sources */,
+				82298C731E803D8F00A5E544 /* MainTableViewController.swift in Sources */,
 				82298C711E803D8F00A5E544 /* AppDelegate.swift in Sources */,
+				823F6288210C14090035F236 /* Labels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

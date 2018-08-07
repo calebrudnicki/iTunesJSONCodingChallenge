@@ -27,46 +27,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        let defaults = UserDefaults.standard
-        let userHasOnboarded =  defaults.bool(forKey: "userHasOnboarded")
-        if userHasOnboarded {
+        if UserDefaults.standard.bool(forKey: "userHasOnboarded") {
             self.setupNormalRootViewController()
         } else {
-            UserDefaults.standard.set(true, forKey: "isSeeingRentalPrice")
             UserDefaults.standard.set(25, forKey: "numberOfMovies")
-            self.window?.rootViewController = self.generateStandardOnboardingVC()
+            self.window?.rootViewController = generateStandardOnboardingVC()
         }
         
         //Set the tint color of the entire app
-        window?.tintColor = UIColor(red: 101/255, green: 153/255, blue: 185/255, alpha: 1.0)
-        
+        window?.tintColor = UIColor.purple
+    
         return true
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
+    func applicationWillResignActive(_ application: UIApplication) {}
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
+    func applicationDidEnterBackground(_ application: UIApplication) {}
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
+    func applicationWillEnterForeground(_ application: UIApplication) {}
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        application.applicationIconBadgeNumber = 0
-    }
+    func applicationDidBecomeActive(_ application: UIApplication) {}
 
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
-    }
+    func applicationWillTerminate(_ application: UIApplication) {}
 
     //MARK: Core Data stack
 
@@ -141,29 +123,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboardingVC.skipButton.setTitleColor(UIColor.white, for: .normal)
         onboardingVC.allowSkipping = true
         onboardingVC.fadeSkipButtonOnLastPage = true
-        
         onboardingVC.skipHandler = {
             self.skip()
         }
-        
         return onboardingVC
-        
     }
     
-    func handleOnboardingCompletion (){
+    func handleOnboardingCompletion() {
         self.setupNormalRootViewController()
     }
     
-    func setupNormalRootViewController (){
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "NavigationController") as! UIViewController
-        UIApplication.shared.keyWindow?.rootViewController = viewController
-        let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "userHasOnboarded")
+    func setupNormalRootViewController() {
+        let navigationController = UINavigationController(rootViewController: MainTableViewController())
+        navigationController.navigationBar.barTintColor = UIColor(red: 101/255, green: 153/255, blue: 185/255, alpha: 1.0)
+        navigationController.navigationBar.tintColor = .white
+        if #available(iOS 11.0, *) {
+            navigationController.navigationBar.prefersLargeTitles = true
+        }
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        UserDefaults.standard.set(true, forKey: "userHasOnboarded")
         
     }
     
-    func skip (){
+    func skip() {
         self.setupNormalRootViewController()
     }
 

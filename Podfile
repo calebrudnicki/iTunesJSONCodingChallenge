@@ -10,6 +10,10 @@ target 'iTunesCodingChallenge' do
     pod 'Onboard'
     pod 'Armchair'
     pod 'SwiftyJSON'
+    pod 'PureLayout'
+    pod 'NewPopMenu'
+    pod 'Kingfisher'
+    
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'

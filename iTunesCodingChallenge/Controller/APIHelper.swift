@@ -39,9 +39,7 @@ class APIHelper {
         return movieList
         
     }
-    
-    //MARK: Helper Functions
-    
+        
     //This block of code formats the date into a MMMM dd, yyyy format
     let outputFormatter : DateFormatter = {
         let formatter = DateFormatter()

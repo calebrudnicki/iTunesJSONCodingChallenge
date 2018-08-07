@@ -8,28 +8,28 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 import FirebaseDatabase
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoritesViewController: UITableViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet weak var noFavoritesLabel: UILabel!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var movies: [Movie] = []
     var dbRef: DatabaseReference!
     
     //This function sets up the table view and calls retrieveFromCoreData() and decideToShowNoFavoritesLabel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = UIColor.white
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.isEditing = false
         tableView.allowsSelectionDuringEditing = true
+        tableView.separatorStyle = .none
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped(_:)))
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView()
-        dbRef = Database.database().reference().child("movies")
+        if let uid = Auth.auth().currentUser?.uid {
+            self.dbRef = Database.database().reference().child(uid)
+        }
         startObservingDatabase()
     }
     
@@ -54,45 +54,33 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func reorderMovies() {
-        print("reorder")
         var rank = 1
         for movie in movies {
-//            (movie as Movie).rank = rank
             let movieRef = self.dbRef.child((movie.name!.lowercased()))
             let rankRef = movieRef.child("rank")
             rankRef.setValue(rank)
-//            movieRef.setValue(rank, forKey: "rank")
-//            movieRef.setValue(movie.rank = rank)
             rank += 1
         }
-        print(movies)
     }
 
     //MARK: TableView Delegate Functions
     
     //This delegate function sets the amount of rows in the table view to the total amount of favorited movies
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     //This delegate function sets data in each cell to the appropriate movie rank, name, date, and price
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-        cell.rankLabel.text = String(indexPath.row + 1)
-        cell.titleLabel.text = movies[indexPath.row].name!
-        cell.releaseDateLabel.text = movies[indexPath.row].releaseDate!
-        if let priceDefault = UserDefaults.standard.object(forKey: "isSeeingRentalPrice") as? Bool {
-            if priceDefault == true && self.movies[indexPath.row].rentalPrice != nil {
-                cell.priceLabel.text = "Rent: " + self.movies[indexPath.row].rentalPrice!
-            } else {
-                cell.priceLabel.text = "Purchase: " + self.movies[indexPath.row].purchasePrice!
-            }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if let cell = cell as? MovieTableViewCell {
+            cell.display(rank: indexPath.row + 1, movie: movies[indexPath.row])
         }
         return cell
     }
     
     //This delegate function allows the user to delete a cell
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let movie = movies[indexPath.row]
             movie.itemRef?.removeValue()
@@ -103,7 +91,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     //This delegate function allows the user to swipe on the cell and watch the movie's trailer
-    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let watchTrailer = UITableViewRowAction(style: .default, title: "Watch Trailer", handler: { action, index in
             self.tableView.isEditing = false
             let url = URL(string: (self.movies[editActionsForRowAt.row].link)!)!
@@ -121,7 +109,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     //This delegate function allows the user to reorder their favorites list but doesn't change anything in CoreData until the view disappears
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movieToBeMoved = movies[sourceIndexPath.row]
         movies.remove(at: sourceIndexPath.row)
         movies.insert(movieToBeMoved, at: destinationIndexPath.row)
@@ -131,13 +119,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //MARK: Action Functions
     
     //This function toggles between editing the table view and not editing the table view when the edit button is pressed
-    @IBAction func editButtonTapped(_ sender: Any) {
+    @objc func editButtonTapped(_ sender: Any) {
         tableView.setEditing(!self.tableView.isEditing, animated: true)
-        if editButton.title == "Edit" {
-            editButton.title = "Done"
-        } else {
-            editButton.title = "Edit"
-        }
+//        if editButton.title == "Edit" {
+//            editButton.title = "Done"
+//        } else {
+//            editButton.title = "Edit"
+//        }
     }
 
 }
